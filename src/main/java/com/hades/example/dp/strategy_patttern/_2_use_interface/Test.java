@@ -28,9 +28,14 @@ public class Test {
         if (null == duck) {
             return;
         }
-        duck.quack();
+        if (duck instanceof IQuack) {
+            ((IQuack) duck).quack();
+        }
         duck.swim();
         duck.display();
-        duck.fly();
+
+        if (duck instanceof IFly) {
+            ((IFly) duck).fly();
+        }
     }
 }

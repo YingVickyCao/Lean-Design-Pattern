@@ -5,16 +5,6 @@ package com.hades.example.dp.strategy_patttern._2_use_interface;
  */
 public class DecoyDuck extends Duck {
     @Override
-    public void quack() {
-
-    }
-
-    @Override
-    public void fly() {
-
-    }
-
-    @Override
     public void display() {
         System.out.println("诱饵鸭");
     }
