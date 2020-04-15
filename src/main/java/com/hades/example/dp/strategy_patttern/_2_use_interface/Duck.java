@@ -1,4 +1,4 @@
-package com.hades.example.dp.strategy_patttern._1_Inheritance;
+package com.hades.example.dp.strategy_patttern._2_use_interface;
 
 public class Duck {
     public void quack() { // 呱呱叫

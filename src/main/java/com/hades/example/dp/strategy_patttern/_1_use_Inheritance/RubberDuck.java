@@ -1,4 +1,4 @@
-package com.hades.example.dp.strategy_patttern._1_Inheritance;
+package com.hades.example.dp.strategy_patttern._1_use_Inheritance;
 
 /**
  * 橡皮鸭：会叫，不会飞
