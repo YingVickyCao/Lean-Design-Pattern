@@ -1,6 +1,6 @@
-package com.hades.example.dp.observer_patttern._2_use_observer_patttern;
+package com.hades.example.dp.observer_patttern._1;
 
-public class Test {
+public class WeatherStation {
     public static void main(String[] args) {
         WeatherData weatherData = new WeatherData();
         weatherData.measurementsChanged();
