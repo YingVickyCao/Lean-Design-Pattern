@@ -1,5 +1,6 @@
 package com.hades.example.dp.strategy_patttern._3_strategy_patttern;
 
+import com.hades.example.dp.strategy_patttern._3_strategy_patttern.behavior.FlyRocketPowered;
 import com.hades.example.dp.strategy_patttern._3_strategy_patttern.duck.*;
 
 public class Test {
@@ -23,6 +24,9 @@ public class Test {
 
         Duck decoyDuck = new DecoyDuck();
         print(decoyDuck);
+        // 动态改变行为
+        decoyDuck.setFlyBehavior(new FlyRocketPowered());
+        decoyDuck.performFly();
         System.out.println();
     }
 
