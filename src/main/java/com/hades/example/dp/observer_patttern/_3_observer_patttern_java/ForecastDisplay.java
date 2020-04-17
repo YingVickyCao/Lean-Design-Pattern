@@ -1,4 +1,7 @@
-package com.hades.example.dp.observer_patttern._2_use_observer_patttern;
+package com.hades.example.dp.observer_patttern._3_observer_patttern_java;
+
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * 天气预报
@@ -7,18 +10,21 @@ public class ForecastDisplay implements Observer, DisplayElement {
     private float currentPressure = 29.92f;
     private float lastPressure;
 
-    private Subject mSubject;
+    private Observable mObservable;
 
-    public ForecastDisplay(Subject subject) {
-        mSubject = subject;
-        mSubject.registerObserver(this);
+    public ForecastDisplay(Observable subject) {
+        mObservable = subject;
+        mObservable.addObserver(this);
     }
 
-    public void update(int temperature, int humidity, int pressure) {
-        lastPressure = currentPressure;
-        currentPressure = pressure;
+    @Override
+    public void update(Observable o, Object arg) {
+        if (o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
 
-        display();
+            lastPressure = currentPressure;
+            currentPressure = weatherData.getPressure();
+        }
     }
 
     @Override

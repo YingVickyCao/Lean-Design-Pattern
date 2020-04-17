@@ -1,24 +1,20 @@
-package com.hades.example.dp.observer_patttern._2_use_observer_patttern;
+package com.hades.example.dp.observer_patttern._3_observer_patttern_java;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Observable;
 
-public class WeatherData implements Subject {
-    private List<Observer> mObservers;
-
+public class WeatherData extends Observable {
     private int temperature;
     private int humidity;
     private int pressure;
 
     public WeatherData() {
-        mObservers = new ArrayList<>();
     }
 
     public int mockTemperature() {
         return (int) (Math.random() * 30);
     }
 
-    public int mockHumidity() {
+   public int mockHumidity() {
         return (int) (Math.random() * 30);
     }
 
@@ -56,26 +52,7 @@ public class WeatherData implements Subject {
     }
 
     public void measurementsChanged() {
+        setChanged();
         notifyObservers();
-    }
-
-    @Override
-    public void registerObserver(Observer observer) {
-        mObservers.add(observer);
-    }
-
-    @Override
-    public void removeObserver(Observer observer) {
-        int index = mObservers.indexOf(observer);
-        if (index >= 0) {
-            mObservers.remove(index);
-        }
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer item : mObservers) {
-            item.update(temperature, humidity, pressure);
-        }
     }
 }

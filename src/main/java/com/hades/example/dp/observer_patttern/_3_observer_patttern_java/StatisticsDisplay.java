@@ -1,26 +1,32 @@
-package com.hades.example.dp.observer_patttern._2_use_observer_patttern;
+package com.hades.example.dp.observer_patttern._3_observer_patttern_java;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * 气象统计
  */
 public class StatisticsDisplay implements Observer, DisplayElement {
     private List<Integer> temperatures = new ArrayList<>();
-    private Subject mSubject;
+    private Observable mObservable;
 
-    public StatisticsDisplay(Subject subject) {
-        mSubject = subject;
-        mSubject.registerObserver(this);
+    public StatisticsDisplay(Observable observable) {
+        mObservable = observable;
+        mObservable.addObserver(this);
     }
 
     @Override
-    public void update(int temperature, int humidity, int pressure) {
-        temperatures.add(temperature);
+    public void update(Observable o, Object arg) {
+        if (o instanceof WeatherData){
+            WeatherData weatherData = (WeatherData) o;
 
-        display();
+            temperatures.add(weatherData.getTemperature());
+
+            display();
+        }
     }
 
     @Override

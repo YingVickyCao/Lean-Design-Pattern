@@ -1,4 +1,4 @@
-package com.hades.example.dp.observer_patttern._2_use_observer_patttern;
+package com.hades.example.dp.observer_patttern._3_observer_patttern_java;
 
 public class WeatherStation {
     public static void main(String[] args) {
@@ -11,12 +11,12 @@ public class WeatherStation {
 
         weatherData.setMeasurements(weatherData.mockTemperature(), weatherData.mockHumidity(), weatherData.mockPressure());
 
-        weatherData.removeObserver(currentConditionDisplay);
-        weatherData.removeObserver(forecastDisplay);
-        weatherData.removeObserver(statisticsDisplay);
+        weatherData.deleteObserver(currentConditionDisplay);
+        weatherData.deleteObserver(forecastDisplay);
+        weatherData.deleteObserver(statisticsDisplay);
         weatherData.setMeasurements(weatherData.mockTemperature(), weatherData.mockHumidity(), weatherData.mockPressure());
 
-        weatherData.removeObserver(heatIndexDisplay);
+        weatherData.deleteObserver(heatIndexDisplay);
         weatherData.measurementsChanged();
     }
 }
