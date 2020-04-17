@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.hades.example.dp'
+group 'com.hades.example.designpatterns'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
