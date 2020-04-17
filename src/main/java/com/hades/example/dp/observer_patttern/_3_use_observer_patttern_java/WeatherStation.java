@@ -1,4 +1,4 @@
-package com.hades.example.dp.observer_patttern._3_observer_patttern_java;
+package com.hades.example.dp.observer_patttern._3_use_observer_patttern_java;
 
 public class WeatherStation {
     public static void main(String[] args) {
