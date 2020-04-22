@@ -1,26 +1,7 @@
-package com.hades.example.designpatterns.factory._2;
+package com.hades.example.designpatterns.factory._2_simple_factory;
 
-public class PizzaStore {
-    /*
-    Pizza orderPizza(String type) {
-        Pizza pizza = null;
-        if ("cheese".equals(type)) {
-            pizza = new CheesePizza();
-        } else if ("greek".equals(type)) {
-            pizza = new GreekPizza();
-        } else if ("pepperoni".equals(type)) {
-            pizza = new PepperoniPizza();
-        }
-        if (null != pizza) {
-            pizza.prepare();
-            pizza.bake();
-            pizza.cut();
-            pizza.box();
-        }
-        return pizza;
-    }*/
-
-    Pizza orderPizza(String type) {
+public class SimplePizzaFactory {
+    public Pizza createPizza(String type) {
         Pizza pizza = null;
         if ("cheese".equals(type)) {
             pizza = new CheesePizza();
