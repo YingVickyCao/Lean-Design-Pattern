@@ -20,12 +20,12 @@ public class PizzaStore {
         return pizza;
     }*/
 
+    // - GreekPizza
+    // + ClamPizza,VeggiePizza
     Pizza orderPizza(String type) {
         Pizza pizza = null;
         if ("cheese".equals(type)) {
             pizza = new CheesePizza();
-        } else if ("greek".equals(type)) {
-            pizza = new GreekPizza();
         } else if ("pepperoni".equals(type)) {
             pizza = new PepperoniPizza();
         } else if ("clam".equals(type)) {
