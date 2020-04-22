@@ -21,13 +21,6 @@ public class NewYorkStylePizzaStore extends PizzaStore {
         } else if ("veggie".equals(type)) {
             pizza = new NewYorkStyleVeggiePizza();
         }
-
-        if (null != pizza) {
-            pizza.prepare();
-            pizza.bake();
-            pizza.cut();
-            pizza.box();
-        }
         return pizza;
     }
 }
