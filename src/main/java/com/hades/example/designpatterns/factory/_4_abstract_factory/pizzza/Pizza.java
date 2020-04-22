@@ -1,20 +1,20 @@
 package com.hades.example.designpatterns.factory._4_abstract_factory.pizzza;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.hades.example.designpatterns.factory._4_abstract_factory.pizzaIngred.*;
 
-public abstract class Pizza{
+public abstract class Pizza {
     protected String name;
-    String dough;
-    String sauce;
-    List<String> toppings = new ArrayList<>();
+    Dough mDough;
+    Sauce mSauce;
+    Veggie[] mVeggies;
+    Cheese mCheese;
+    Pepperoni mPepperoni;
+    Clams mClams;
 
     /**
      * 准备
      */
-    public void prepare() {
-//        System.out.println("prepare");
-    }
+    public abstract void prepare();
 
     /**
      * 烘烤
@@ -41,14 +41,42 @@ public abstract class Pizza{
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String toString() {
-        StringBuilder display = new StringBuilder();
-        display.append("---- " + name + " ----\n");
-        display.append(dough + "\n");
-        display.append(sauce + "\n");
-        for (String topping : toppings) {
-            display.append(topping + "\n");
+        StringBuilder result = new StringBuilder();
+        result.append("---- " + name + " ----\n");
+        if (mDough != null) {
+            result.append(mDough);
+            result.append("\n");
         }
-        return display.toString();
+        if (mSauce != null) {
+            result.append(mSauce);
+            result.append("\n");
+        }
+        if (mCheese != null) {
+            result.append(mCheese);
+            result.append("\n");
+        }
+        if (mVeggies != null) {
+            for (int i = 0; i < mVeggies.length; i++) {
+                result.append(mVeggies[i]);
+                if (i < mVeggies.length - 1) {
+                    result.append(", ");
+                }
+            }
+            result.append("\n");
+        }
+        if (mClams != null) {
+            result.append(mClams);
+            result.append("\n");
+        }
+        if (mPepperoni != null) {
+            result.append(mPepperoni);
+            result.append("\n");
+        }
+        return result.toString();
     }
 }

@@ -1,9 +1,6 @@
 package com.hades.example.designpatterns.factory._3_factory_method.store;
 
-import com.hades.example.designpatterns.factory._3_factory_method.pizzza.ChicagoStyleCheesePizza;
-import com.hades.example.designpatterns.factory._3_factory_method.pizzza.ChicagoStyleClamPizza;
-import com.hades.example.designpatterns.factory._3_factory_method.pizzza.ChicagoStylePepperoniPizza;
-import com.hades.example.designpatterns.factory._3_factory_method.pizzza.Pizza;
+import com.hades.example.designpatterns.factory._3_factory_method.pizzza.*;
 
 public class ChicagoStylePizzaStore extends PizzaStore {
     public ChicagoStylePizzaStore() {
@@ -22,7 +19,7 @@ public class ChicagoStylePizzaStore extends PizzaStore {
         } else if ("clam".equals(type)) {
             pizza = new ChicagoStyleClamPizza();
         } else if ("veggie".equals(type)) {
-            pizza = new ChicagoStyleCheesePizza();
+            pizza = new ChicagoStyleVeggiePizza();
         }
 
         if (null != pizza) {

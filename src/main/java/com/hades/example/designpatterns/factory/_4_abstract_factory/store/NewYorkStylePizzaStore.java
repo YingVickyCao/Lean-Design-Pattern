@@ -1,9 +1,8 @@
 package com.hades.example.designpatterns.factory._4_abstract_factory.store;
 
-import com.hades.example.designpatterns.factory._4_abstract_factory.pizzza.NewYorkStyleCheesePizza;
-import com.hades.example.designpatterns.factory._4_abstract_factory.pizzza.NewYorkStyleClamPizza;
-import com.hades.example.designpatterns.factory._4_abstract_factory.pizzza.NewYorkStylePepperoniPizza;
-import com.hades.example.designpatterns.factory._4_abstract_factory.pizzza.Pizza;
+import com.hades.example.designpatterns.factory._4_abstract_factory.pizzaIngred.factory.IPizzaIngredientFactory;
+import com.hades.example.designpatterns.factory._4_abstract_factory.pizzaIngred.factory.NewYorkPizzaIngredientFactory;
+import com.hades.example.designpatterns.factory._4_abstract_factory.pizzza.*;
 
 public class NewYorkStylePizzaStore extends PizzaStore {
     public NewYorkStylePizzaStore() {
@@ -14,22 +13,20 @@ public class NewYorkStylePizzaStore extends PizzaStore {
     // + ClamPizza,VeggiePizza
     @Override
     Pizza createPizza(String type) {
+        IPizzaIngredientFactory pizzaIngredientFactory = new NewYorkPizzaIngredientFactory();
         Pizza pizza = null;
         if ("cheese".equals(type)) {
-            pizza = new NewYorkStyleCheesePizza();
+            pizza = new CheesePizza(pizzaIngredientFactory);
+            pizza.setName("New York Style Cheese Pizza");
         } else if ("pepperoni".equals(type)) {
-            pizza = new NewYorkStylePepperoniPizza();
+            pizza = new PepperoniPizza(pizzaIngredientFactory);
+            pizza.setName("New York Style Pepperoni Pizza");
         } else if ("clam".equals(type)) {
-            pizza = new NewYorkStyleClamPizza();
+            pizza = new ClamPizza(pizzaIngredientFactory);
+            pizza.setName("New York Style Clam Pizza");
         } else if ("veggie".equals(type)) {
-            pizza = new NewYorkStyleCheesePizza();
-        }
-
-        if (null != pizza) {
-            pizza.prepare();
-            pizza.bake();
-            pizza.cut();
-            pizza.box();
+            pizza = new VeggiePizza(pizzaIngredientFactory);
+            pizza.setName("New York Style Veggie Pizza");
         }
         return pizza;
     }
