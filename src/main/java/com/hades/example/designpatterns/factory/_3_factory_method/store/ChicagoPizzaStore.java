@@ -2,8 +2,8 @@ package com.hades.example.designpatterns.factory._3_factory_method.store;
 
 import com.hades.example.designpatterns.factory._3_factory_method.pizzza.*;
 
-public class NewYorkStylePizzaStore extends PizzaStore {
-    public NewYorkStylePizzaStore() {
+public class ChicagoPizzaStore extends PizzaStore {
+    public ChicagoPizzaStore() {
         super();
     }
 
@@ -13,13 +13,13 @@ public class NewYorkStylePizzaStore extends PizzaStore {
     Pizza createPizza(String type) {
         Pizza pizza = null;
         if ("cheese".equals(type)) {
-            pizza = new NewYorkStyleCheesePizza();
+            pizza = new ChicagoStyleCheesePizza();
         } else if ("pepperoni".equals(type)) {
-            pizza = new NewYorkStylePepperoniPizza();
+            pizza = new ChicagoStylePepperoniPizza();
         } else if ("clam".equals(type)) {
-            pizza = new NewYorkStyleClamPizza();
+            pizza = new ChicagoStyleClamPizza();
         } else if ("veggie".equals(type)) {
-            pizza = new NewYorkStyleVeggiePizza();
+            pizza = new ChicagoStyleVeggiePizza();
         }
         return pizza;
     }
