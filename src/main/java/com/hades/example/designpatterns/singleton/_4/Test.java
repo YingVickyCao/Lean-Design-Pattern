@@ -1,9 +1,9 @@
-package com.hades.example.designpatterns.singleton._1;
+package com.hades.example.designpatterns.singleton._4;
 
 public class Test {
     public static void main(String[] args) {
         Test test = new Test();
-//        test.singleThread();
+        test.singleThread();
         test.multipleThread();
     }
 
@@ -11,17 +11,15 @@ public class Test {
      * 1,1
      */
     private void singleThread() {
-        Singleton singleton = Singleton.getInstance();//  1
-        singleton.increment();
+        Singleton singleton = Singleton.getInstance();
+        singleton.increment();  //  1
 
-        Singleton singleton2 = Singleton.getInstance();// 2
-        singleton2.increment();
+        Singleton singleton2 = Singleton.getInstance();
+        singleton2.increment(); // 2
     }
 
     /**
-     * 1,1
      * 1,2
-     * 2,1
      */
     private void multipleThread() {
         new Thread(new Runnable() {

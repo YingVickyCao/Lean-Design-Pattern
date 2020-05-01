@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.singleton._1;
+package com.hades.example.designpatterns.singleton._3;
 
 public class Test {
     public static void main(String[] args) {
@@ -19,9 +19,7 @@ public class Test {
     }
 
     /**
-     * 1,1
      * 1,2
-     * 2,1
      */
     private void multipleThread() {
         new Thread(new Runnable() {
