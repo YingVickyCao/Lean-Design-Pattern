@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.command;
+package com.hades.example.designpatterns.command._2;
 
 public class LightOnCommand implements Command{
     private Light mLight;

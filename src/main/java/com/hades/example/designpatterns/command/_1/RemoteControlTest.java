@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.command;
+package com.hades.example.designpatterns.command._1;
 
 public class RemoteControlTest {
     public static void main(String [] args){
@@ -6,6 +6,10 @@ public class RemoteControlTest {
         remoteControlTest.test();
     }
 
+    /**
+     * Light is on
+     * Light is off
+     */
     private void test(){
         SimpleRemoteControl remoteControl = new SimpleRemoteControl();
         Light light = new Light();

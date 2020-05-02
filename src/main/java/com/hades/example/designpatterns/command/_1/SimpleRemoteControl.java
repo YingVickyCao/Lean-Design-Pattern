@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.command;
+package com.hades.example.designpatterns.command._1;
 
 public class SimpleRemoteControl {
     private Command mSlot;
