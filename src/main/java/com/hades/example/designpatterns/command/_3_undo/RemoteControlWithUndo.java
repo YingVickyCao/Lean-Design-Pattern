@@ -3,6 +3,7 @@ package com.hades.example.designpatterns.command._3_undo;
 public class RemoteControlWithUndo {
     private Command[] mOffCommands;
     private Command[] mOnCommands;
+    private Command mUndoCommand;
 
     public RemoteControlWithUndo() {
         mOffCommands = new Command[7];
@@ -13,6 +14,7 @@ public class RemoteControlWithUndo {
             mOnCommands[i] = noCommand;
             mOffCommands[i] = noCommand;
         }
+        mUndoCommand = noCommand;
     }
 
     public void setCommand(int index, Command on, Command off) {
@@ -23,13 +25,19 @@ public class RemoteControlWithUndo {
     public void onButtonPressed(int index) {
 //        if (mOnCommands[index] != null) {
             mOnCommands[index].execute();
+            mUndoCommand = mOnCommands[index];
 //        }
     }
 
     public void offButtonPressed(int index) {
 //        if (mOffCommands[index] != null) {
             mOffCommands[index].execute();
+            mUndoCommand = mOffCommands[index];
 //        }
+    }
+
+    public void undoButtonPressed(){
+        mUndoCommand.undo();
     }
 
     @Override

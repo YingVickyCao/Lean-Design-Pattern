@@ -13,4 +13,9 @@ public class TVOnCommand implements Command {
             mTV.on();
         }
     }
+
+    @Override
+    public void undo() {
+        mTV.off();
+    }
 }
