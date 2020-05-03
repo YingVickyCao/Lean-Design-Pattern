@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.command._5_remote_control_with_macro;
+package com.hades.example.designpatterns.command._5_remote_control_with_macro_and_undo;
 
 /**
  * 按On按钮：同时打开灯光、打开音响、打开TV等

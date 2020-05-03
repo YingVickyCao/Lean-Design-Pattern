@@ -1,17 +1,17 @@
-package com.hades.example.designpatterns.command._5_remote_control_with_macro;
+package com.hades.example.designpatterns.command._5_remote_control_with_macro_and_undo;
 
-public class CeilingFanMediumCommand implements Command {
+public class CeilingFanOffCommand implements Command {
     private CeilingFan mCeilingFan;
     private int prevSpeed;
 
-    public CeilingFanMediumCommand(CeilingFan ceilingFan) {
+    public CeilingFanOffCommand(CeilingFan ceilingFan) {
         mCeilingFan = ceilingFan;
     }
 
     @Override
     public void execute() {
         prevSpeed = mCeilingFan.getSpeed();
-        mCeilingFan.medium();
+        mCeilingFan.off();
     }
 
     @Override
