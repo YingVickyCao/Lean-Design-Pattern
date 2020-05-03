@@ -14,6 +14,6 @@ public class LightOffCommand implements Command {
 
     @Override
     public void undo() {
-        mLight.off();
+        mLight.on();
     }
 }
