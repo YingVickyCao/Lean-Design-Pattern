@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.command._2;
+package com.hades.example.designpatterns.command._4_undo;
 
 public class Light {
     public void on() {

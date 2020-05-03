@@ -9,30 +9,17 @@ public class RemoteControlTest {
     /**
      * Light is on
      * Light is off
-     * TV is on
-     * TV is on
      */
     private void test(){
-        RemoteControl remoteControl = new RemoteControl();
-
+        SimpleRemoteControl remoteControl = new SimpleRemoteControl();
         Light light = new Light();
-        LightOnCommand lightOn = new LightOnCommand(light);
-        LightOffCommand lightOff = new LightOffCommand(light);
+        LightOnCommand on = new LightOnCommand(light);
+        LightOffCommand off = new LightOffCommand(light);
 
-        TV tv = new TV();
-        TVOnCommand tvOnCommand = new TVOnCommand(tv);
-        TVOnCommand tvOffCommand = new TVOnCommand(tv);
+        remoteControl.setCommand(on);
+        remoteControl.buttonPressed();
 
-        remoteControl.setCommand(0,lightOn,lightOff);
-        remoteControl.setCommand(1,tvOnCommand,tvOffCommand);
-
-        remoteControl.onButtonPressed(0);
-        remoteControl.offButtonPressed(0);
-
-        remoteControl.onButtonPressed(1);
-        remoteControl.offButtonPressed(1);
-
-        remoteControl.onButtonPressed(5);
-        remoteControl.offButtonPressed(5);
+        remoteControl.setCommand(off);
+        remoteControl.buttonPressed();
     }
 }
