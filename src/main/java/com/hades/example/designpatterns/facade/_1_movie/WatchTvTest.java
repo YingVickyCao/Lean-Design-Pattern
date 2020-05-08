@@ -24,7 +24,7 @@ public class WatchTvTest {
 
         tv.on();
         tv.play();
-    }
+        }
 
     private void endWatchTv(PopcornPopper popcornPopper, TV tv) {
         popcornPopper.off();
