@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.template_method._4_jframe;
+package com.hades.example.designpatterns.template_method._3_jframe;
 
 import javax.swing.*;
 import java.awt.*;

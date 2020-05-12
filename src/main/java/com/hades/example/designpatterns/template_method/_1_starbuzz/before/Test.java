@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.template_method._1_starbuzz;
+package com.hades.example.designpatterns.template_method._1_starbuzz.before;
 
 public class Test {
     public static void main(String[] args) {

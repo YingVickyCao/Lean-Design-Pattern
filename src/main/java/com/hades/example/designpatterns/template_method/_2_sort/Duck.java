@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.template_method._3_sort;
+package com.hades.example.designpatterns.template_method._2_sort;
 
 public class Duck implements Comparable {
     private String name;

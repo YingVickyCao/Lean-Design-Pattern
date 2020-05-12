@@ -1,12 +1,15 @@
-package com.hades.example.designpatterns.template_method._2_starbuzz_with_template_method;
+package com.hades.example.designpatterns.template_method._1_starbuzz.after;
 
 // 咖啡因饮料
-public abstract class CaffeineBeverage {
+public abstract class CaffeineBeverageWithHook {
+    // prepareRecipe是模板方法
     final void prepareRecipe() {
         boilWater();
         brew();
         pourInCup();
-        addCondiments();
+        if (customerWantsCondiments()) {
+            addCondiments();
+        }
     }
 
     void boilWater() {
@@ -20,4 +23,8 @@ public abstract class CaffeineBeverage {
     }
 
     abstract void addCondiments();
+
+    boolean customerWantsCondiments() {
+        return true;
+    }
 }

@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.template_method._5_applet;
+package com.hades.example.designpatterns.template_method._4_applet;
 
 import java.applet.Applet;
 import java.awt.*;
