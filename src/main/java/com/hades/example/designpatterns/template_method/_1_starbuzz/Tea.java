@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.template_method._1_starbuzz._1;
+package com.hades.example.designpatterns.template_method._1_starbuzz;
 
 public class Tea {
     void prepareRecipe() {

@@ -1,26 +1,25 @@
-package com.hades.example.designpatterns.template_method._1_starbuzz._2;
+package com.hades.example.designpatterns.template_method._2_starbuzz_with_template_method;
 
-public class Coffee extends CaffeineBeverage {
-
+public class Tea extends CaffeineBeverage{
     // 1 把水煮沸
     public void boilWater() {
         System.out.println("Bolling water");
     }
 
-    // 2 用沸水冲泡咖啡
+    // 2 用沸水冲泡茶叶
     @Override
     void brew() {
         System.out.println("Dripping Coffee trough filter");
     }
 
-    // 3 把咖啡倒进杯子
+    // 3 把茶倒进杯子
     public void pourInCup() {
         System.out.println("Pouring into cup");
     }
 
-    // 4 加糖和牛奶
+    // 4 加柠檬
     @Override
     void addCondiments() {
-        System.out.println("Adding Sugar and Milk");
+        System.out.println("Adding Lemon");
     }
 }

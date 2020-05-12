@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.template_method._1_starbuzz._2;
+package com.hades.example.designpatterns.template_method._2_starbuzz_with_template_method;
 
 // 咖啡因饮料
 public abstract class CaffeineBeverage {
