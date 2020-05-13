@@ -15,33 +15,28 @@ public class Test {
     }
 
     private void testPrintMenus() {
-        {
-            List<Menu> menuList = new ArrayList<>();
-            menuList.add(new PancakeHouseMenu());
-            menuList.add(new DinnerMenu());
-            menuList.add(new CafeMenu());
+        List<Menu> menuList = new ArrayList<>();
+        menuList.add(new PancakeHouseMenu());
+        menuList.add(new DinnerMenu());
+        menuList.add(new CafeMenu());
 
-            Waitress print = new Waitress(menuList);
+        Waitress print = new Waitress(menuList);
+//            Waitress print = new Waitress(new PancakeHouseMenu(), new DinnerMenu(), new CafeMenu());
 
-            print.printMenu();
-            System.out.println();
+        print.printMenu();
+        System.out.println();
 
-            print.printVegetarianMenu();
-            System.out.println();
+        print.printBreakfastMenu();
+        System.out.println();
 
-            System.out.println(print.isItemVegetarian("A"));
-            System.out.println(print.isItemVegetarian("Vegetarian BLT"));
-        }
+        print.printLunchMenu();
+        System.out.println();
 
-        {
-            Waitress print = new Waitress(new PancakeHouseMenu(), new DinnerMenu(), new CafeMenu());
-            print.printBreakfastMenu();
-            System.out.println();
+        print.printVegetarianMenu();
+        System.out.println();
 
-            print.printLunchMenu();
-            System.out.println();
-        }
-
+        System.out.println(print.isItemVegetarian("A"));
+        System.out.println(print.isItemVegetarian("Vegetarian BLT"));
     }
 
     // 外部迭代器

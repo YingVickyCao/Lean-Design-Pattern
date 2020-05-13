@@ -4,17 +4,17 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Waitress {
-    Menu mPancakeHouseMenu;
-    Menu mDinnerMenu;
-    Menu mCafeMenu;
+//    Menu mPancakeHouseMenu;
+//    Menu mDinnerMenu;
+//    Menu mCafeMenu;
 
     private List<Menu> mMenus;
 
-    public Waitress(Menu pancakeHouseMenu, Menu dinnerMenu, Menu cafeMenu) {
-        this.mPancakeHouseMenu = pancakeHouseMenu;
-        this.mDinnerMenu = dinnerMenu;
-        this.mCafeMenu = cafeMenu;
-    }
+//    public Waitress(Menu pancakeHouseMenu, Menu dinnerMenu, Menu cafeMenu) {
+//        this.mPancakeHouseMenu = pancakeHouseMenu;
+//        this.mDinnerMenu = dinnerMenu;
+//        this.mCafeMenu = cafeMenu;
+//    }
 
     public Waitress(List<Menu> menus) {
         mMenus = menus;
@@ -40,11 +40,13 @@ public class Waitress {
     }
 
     void printBreakfastMenu() {
-        printMenu(mPancakeHouseMenu.createIterator());
+//        printMenu(mPancakeHouseMenu.createIterator());
+        printMenu(mMenus.get(0).createIterator());
     }
 
     void printLunchMenu() {
-        printMenu(mDinnerMenu.createIterator());
+//        printMenu(mDinnerMenu.createIterator());
+        printMenu(mMenus.get(1).createIterator());
     }
 
     void printVegetarianMenu() {
