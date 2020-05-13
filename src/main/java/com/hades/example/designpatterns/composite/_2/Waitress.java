@@ -40,12 +40,15 @@ public class Waitress {
         Iterator iterator = allMenus.createIterator();
         while (iterator.hasNext()) {
             MenuComponent menuComponent = (MenuComponent) iterator.next();
-            try {
-                if (menuComponent.isVegetarian()) {
-                    menuComponent.print();
-                }
-            } catch (UnsupportedOperationException e) {
-
+//            try {
+//                if (menuComponent.isVegetarian()) {
+//                    menuComponent.print();
+//                }
+//            } catch (UnsupportedOperationException e) {
+//
+//            }
+            if (menuComponent.isVegetarian()) {
+                menuComponent.print();
             }
         }
     }
@@ -54,12 +57,15 @@ public class Waitress {
         Iterator iterator = allMenus.createIterator();
         while (iterator.hasNext()) {
             MenuComponent menuComponent = (MenuComponent) iterator.next();
-            try {
-                if (menuComponent.getName().equalsIgnoreCase(name)) {
-                    return menuComponent.isVegetarian();
-                }
-            } catch (UnsupportedOperationException e) {
-
+//            try {
+//                 if (menuComponent.getName().equalsIgnoreCase(name) && menuComponent.isVegetarian()) {
+//                      return true;
+//                  }
+//            } catch (UnsupportedOperationException e) {
+//
+//            }
+            if (menuComponent.getName().equalsIgnoreCase(name) && menuComponent.isVegetarian()) {
+                return true;
             }
         }
         return false;

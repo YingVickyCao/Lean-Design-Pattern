@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Before = Iterator Pattern - after_4
+ * + CompositeIterator
  */
 public class Test {
     public static void main(String[] args) {

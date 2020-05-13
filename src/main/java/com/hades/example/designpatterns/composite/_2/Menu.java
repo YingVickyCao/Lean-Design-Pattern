@@ -48,10 +48,15 @@ public class Menu extends MenuComponent {
         System.out.println("------------");
 
         Iterator<MenuComponent> iterator = mMenuComponents.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             MenuComponent menuComponent = iterator.next();
             menuComponent.print();
         }
+    }
+
+    @Override
+    public boolean isVegetarian() {
+        return false;
     }
 
     @Override

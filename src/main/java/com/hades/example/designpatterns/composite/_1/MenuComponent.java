@@ -1,5 +1,7 @@
 package com.hades.example.designpatterns.composite._1;
 
+import java.util.List;
+
 public abstract class MenuComponent {
     public void add(MenuComponent menuComponent) {
         throw new UnsupportedOperationException();
@@ -26,6 +28,10 @@ public abstract class MenuComponent {
     }
 
     public void print() {
+        throw new UnsupportedOperationException();
+    }
+
+    public List<MenuComponent> getMenuComponents() {
         throw new UnsupportedOperationException();
     }
 }

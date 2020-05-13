@@ -43,14 +43,23 @@ public class Menu extends MenuComponent {
     }
 
     @Override
+    public boolean isVegetarian() {
+        return false;
+    }
+
+    @Override
     public void print() {
         System.out.println("\n" + name + ", " + desc);
         System.out.println("------------");
 
         Iterator<MenuComponent> iterator = mMenuComponents.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             MenuComponent menuComponent = iterator.next();
             menuComponent.print();
         }
+    }
+
+    public List<MenuComponent> getMenuComponents() {
+        return mMenuComponents;
     }
 }

@@ -1,5 +1,7 @@
 package com.hades.example.designpatterns.composite._1;
 
+import java.util.List;
+
 // 菜单项：组合类图中的叶类，它实现了组合内元素的行为
 public class MenuItem extends MenuComponent {
     private String name;
@@ -28,6 +30,16 @@ public class MenuItem extends MenuComponent {
 
     public double getPrice() {
         return price;
+    }
+
+    @Override
+    public MenuComponent getChild(int i) {
+        return null;
+    }
+
+    @Override
+    public List<MenuComponent> getMenuComponents() {
+        return null;
     }
 
     @Override
