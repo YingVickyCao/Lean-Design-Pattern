@@ -21,6 +21,7 @@ public class Waitress {
     }
 
     public void printMenu() {
+        // 违反了 "开放-关闭原则"：每次新增菜单都要修改
 //        printMenu(mPancakeHouseMenu.createIterator());
 //        printMenu(mDinnerMenu.createIterator());
 //        printMenu(mCafeMenu.createIterator());

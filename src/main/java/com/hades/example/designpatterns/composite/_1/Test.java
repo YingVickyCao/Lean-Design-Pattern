@@ -45,8 +45,10 @@ public class Test {
         waitress.printMenu();
 
         waitress.printBreakfastMenu();
+        waitress.printBreakfastMenu(pancakeHouseIMenu);
 
         waitress.printLunchMenu();
+        waitress.printLunchMenu(dinnerMenu);
 
         waitress.printVegetarianMenu();
 //

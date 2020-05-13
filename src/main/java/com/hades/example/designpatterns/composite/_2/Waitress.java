@@ -31,8 +31,16 @@ public class Waitress {
         menuComponent.print();
     }
 
+    void printBreakfastMenu(MenuComponent menuComponent) {
+        menuComponent.print();
+    }
+
     void printLunchMenu() {
         MenuComponent menuComponent = allMenus.getChild(1);
+        menuComponent.print();
+    }
+
+    void printLunchMenu(MenuComponent menuComponent) {
         menuComponent.print();
     }
 
