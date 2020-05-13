@@ -22,7 +22,11 @@ public class PancakeHouseMenu {
         mMenuItems.add(menuItem);
     }
 
-    public List<MenuItem> getMenuItems() {
-        return mMenuItems;
+//    public List<MenuItem> getMenuItems() {
+//        return mMenuItems;
+//    }
+
+    public Iterator createIterator() {
+        return new PancakeHouseMenuIterator(mMenuItems);
     }
 }

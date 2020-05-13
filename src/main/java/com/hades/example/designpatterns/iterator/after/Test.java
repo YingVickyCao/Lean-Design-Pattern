@@ -7,7 +7,7 @@ public class Test {
     }
 
     private void testPrintMenus() {
-        PrintCustomizeMenu print = new PrintCustomizeMenu();
+        Waitress print = new Waitress();
         print.printMenu();
         System.out.println();
 
