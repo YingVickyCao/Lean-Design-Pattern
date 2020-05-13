@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.composite;
+package com.hades.example.designpatterns.composite._1;
 
 import java.util.Iterator;
 
@@ -13,10 +13,8 @@ public class DinnerIMenu implements IMenu {
 
     public DinnerIMenu() {
         mMenuItems = new MenuItem[MAX_ITEMS];
-        addItem("Vegetarian BLT", "(Faked) Bacon with lettuce & tomato on whole wheat", true, 2.99);
-        addItem("Bacon with lettuce & tomato on whole wheat", "Pancakes with fried eggs,sausage", false, 2.99);
-        addItem("Soup of the day", "Soup of the day, with side of potato salad", false, 3.29);
-        addItem("Hotdog", "A hot dog,with sauerkraut, relish, onions, topped with cheese", false, 3.05);
+        addItem("Dinner 1", "Dinner 1 desc", true, 2.99);
+        addItem("Dinner 2", "Dinner 2 desc", false, 3.05);
     }
 
     public void addItem(String name, String desc, boolean isVegetarian, double price) {

@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.composite;
+package com.hades.example.designpatterns.composite._1;
 
 // 菜单项：组合类图中的叶类，它实现了组合内元素的行为
 public class MenuItem extends MenuComponent {

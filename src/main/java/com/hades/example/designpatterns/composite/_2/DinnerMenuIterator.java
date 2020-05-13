@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.composite;
+package com.hades.example.designpatterns.composite._2;
 
 import java.util.Iterator;
 

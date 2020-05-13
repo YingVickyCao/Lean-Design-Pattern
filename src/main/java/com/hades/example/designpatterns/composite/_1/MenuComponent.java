@@ -1,31 +1,31 @@
-package com.hades.example.designpatterns.composite;
+package com.hades.example.designpatterns.composite._1;
 
 public abstract class MenuComponent {
-    public void add(MenuComponent menuComponent){
+    public void add(MenuComponent menuComponent) {
         throw new UnsupportedOperationException();
     }
 
-    public void remove(MenuComponent menuComponent){
+    public void remove(MenuComponent menuComponent) {
         throw new UnsupportedOperationException();
     }
 
-    public void getChild(int i){
+    public MenuComponent getChild(int i) {
         throw new UnsupportedOperationException();
     }
 
-    public String getName(){
+    public String getName() {
         throw new UnsupportedOperationException();
     }
 
-    public String getDesc(){
+    public String getDesc() {
         throw new UnsupportedOperationException();
     }
 
-    public boolean isVegetarian(){
+    public boolean isVegetarian() {
         throw new UnsupportedOperationException();
     }
 
-    public void print(){
+    public void print() {
         throw new UnsupportedOperationException();
     }
 }

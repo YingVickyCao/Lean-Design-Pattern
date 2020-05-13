@@ -1,12 +1,15 @@
-package com.hades.example.designpatterns.composite;
+package com.hades.example.designpatterns.composite._2;
 
 import java.util.Iterator;
 import java.util.List;
 
+// 菜单的主要客户
 public class Waitress {
     IMenu mPancakeHouseMenu;
     IMenu mDinnerMenu;
     IMenu mCafeMenu;
+
+    MenuComponent allMenus;
 
     private List<IMenu> mMenus;
 
@@ -16,20 +19,16 @@ public class Waitress {
         this.mCafeMenu = cafeMenu;
     }
 
+    public Waitress(MenuComponent allMenus) {
+        this.allMenus = allMenus;
+    }
+
     public Waitress(List<IMenu> menus) {
         mMenus = menus;
     }
 
     public void printMenu() {
-//        printMenu(mPancakeHouseMenu.createIterator());
-//        printMenu(mDinnerMenu.createIterator());
-//        printMenu(mCafeMenu.createIterator());
-
-        Iterator<IMenu> iterator = mMenus.iterator();
-        while (iterator.hasNext()) {
-            IMenu menu = iterator.next();
-            printMenu(menu.createIterator());
-        }
+        allMenus.print();
     }
 
     private void printMenu(Iterator iterator) {
