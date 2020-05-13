@@ -1,4 +1,6 @@
-package com.hades.example.designpatterns.iterator.after;
+package com.hades.example.designpatterns.iterator.after_2;
+
+import java.util.Iterator;
 
 /**
  * 餐厅菜单
@@ -26,10 +28,6 @@ public class DinnerMenu {
             numberOfItems++;
         }
     }
-
-//    public MenuItem[] getMenuItems() {
-//        return mMenuItems;
-//    }
 
     public Iterator createIterator() {
         return new DinnerMenuIterator(mMenuItems);

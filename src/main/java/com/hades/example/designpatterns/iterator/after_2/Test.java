@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.iterator.after;
+package com.hades.example.designpatterns.iterator.after_2;
 
 public class Test {
     public static void main(String[] args) {

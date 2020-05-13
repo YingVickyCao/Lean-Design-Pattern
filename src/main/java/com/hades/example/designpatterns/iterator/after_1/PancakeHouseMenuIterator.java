@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.iterator.after;
+package com.hades.example.designpatterns.iterator.after_1;
 
 import java.util.List;
 

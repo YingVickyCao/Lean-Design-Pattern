@@ -1,12 +1,12 @@
-package com.hades.example.designpatterns.iterator.after;
+package com.hades.example.designpatterns.iterator.after_2;
+
+import java.util.Iterator;
 
 public class Waitress {
     PancakeHouseMenu mPancakeHouseMenu = new PancakeHouseMenu();
 //    List<MenuItem> mBreakfastItems;
 
     DinnerMenu mDinnerMenu = new DinnerMenu();
-//    MenuItem[] mLunchItems;
-
     public Waitress() {
 //        mBreakfastItems = mPancakeHouseMenu.getMenuItems();
 //        mLunchItems = mDinnerMenu.getMenuItems();

@@ -1,6 +1,7 @@
-package com.hades.example.designpatterns.iterator.after;
+package com.hades.example.designpatterns.iterator.after_2;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -27,6 +28,6 @@ public class PancakeHouseMenu {
 //    }
 
     public Iterator createIterator() {
-        return new PancakeHouseMenuIterator(mMenuItems);
+        return mMenuItems.iterator();
     }
 }
