@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.iterator.after_2;
+package com.hades.example.designpatterns.iterator.after_3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,16 +6,16 @@ import java.util.List;
 public class Test {
     public static void main(String[] args) {
         Test test = new Test();
-//        test.testPrintMenus();
+        test.testPrintMenus();
 
-        test.external_iterator();
-        System.out.println();
+//        test.external_iterator();
+//        System.out.println();
 
-        test.internal_iterator();
+//        test.internal_iterator();
     }
 
     private void testPrintMenus() {
-        Waitress print = new Waitress(new PancakeHouseMenu(), new DinnerMenu());
+        Waitress print = new Waitress(new PancakeHouseMenu(), new DinnerMenu(), new CafeMenu());
         print.printMenu();
         System.out.println();
 

@@ -1,14 +1,16 @@
-package com.hades.example.designpatterns.iterator.after_2;
+package com.hades.example.designpatterns.iterator.after_3;
 
 import java.util.Iterator;
 
 public class Waitress {
-    Menu mPancakeHouseMenu ;
+    Menu mPancakeHouseMenu;
     Menu mDinnerMenu;
+    Menu mCafeMenu;
 
-    public Waitress(Menu pancakeHouseMenu, Menu dinnerMenu) {
+    public Waitress(Menu pancakeHouseMenu, Menu dinnerMenu, Menu cafeMenu) {
         this.mPancakeHouseMenu = pancakeHouseMenu;
         this.mDinnerMenu = dinnerMenu;
+        this.mCafeMenu = cafeMenu;
     }
 
     public void printMenu() {
@@ -25,6 +27,7 @@ public class Waitress {
 //            }
 //        }
         printMenu(mDinnerMenu.createIterator());
+        printMenu(mCafeMenu.createIterator());
     }
 
     private void printMenu(Iterator iterator) {
@@ -71,6 +74,7 @@ public class Waitress {
 //            }
 //        }
         printVegetarianMenu(mDinnerMenu.createIterator());
+        printVegetarianMenu(mCafeMenu.createIterator());
     }
 
     private void printVegetarianMenu(Iterator iterator) {
@@ -105,7 +109,14 @@ public class Waitress {
 //                }
 //            }
 //        }
-        return isItemVegetarian(mDinnerMenu.createIterator(), name);
+
+        if (isItemVegetarian(mDinnerMenu.createIterator(), name)) {
+            return true;
+        }
+
+        isItemVegetarian(mCafeMenu.createIterator(), name);
+
+        return false;
     }
 
     private boolean isItemVegetarian(Iterator iterator, String name) {

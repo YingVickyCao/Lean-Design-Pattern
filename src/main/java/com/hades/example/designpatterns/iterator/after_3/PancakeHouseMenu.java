@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.iterator.after_2;
+package com.hades.example.designpatterns.iterator.after_3;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 煎饼屋菜单
  */
-public class PancakeHouseMenu implements Menu{
+public class PancakeHouseMenu implements Menu {
     private List<MenuItem> mMenuItems;
 
     public PancakeHouseMenu() {
