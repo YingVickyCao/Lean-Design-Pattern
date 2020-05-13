@@ -1,7 +1,8 @@
 package com.hades.example.designpatterns.composite._2;
 
+import com.hades.example.designpatterns.composite._1.IMenu;
+
 import java.util.Iterator;
-import java.util.List;
 
 // 菜单的主要客户
 public class Waitress {
@@ -10,8 +11,6 @@ public class Waitress {
     IMenu mCafeMenu;
 
     MenuComponent allMenus;
-
-    private List<IMenu> mMenus;
 
     public Waitress(IMenu pancakeHouseMenu, IMenu dinnerMenu, IMenu cafeMenu) {
         this.mPancakeHouseMenu = pancakeHouseMenu;
@@ -23,84 +22,44 @@ public class Waitress {
         this.allMenus = allMenus;
     }
 
-    public Waitress(List<IMenu> menus) {
-        mMenus = menus;
-    }
-
     public void printMenu() {
         allMenus.print();
     }
 
-    private void printMenu(Iterator iterator) {
-        while (iterator.hasNext()) {
-            MenuItem menuItem = (MenuItem) iterator.next();
-            System.out.println(menuItem.toString());
-        }
-    }
-
     void printBreakfastMenu() {
-        printMenu(mPancakeHouseMenu.createIterator());
+        MenuComponent menuComponent = allMenus.getChild(0);
+        menuComponent.print();
     }
 
     void printLunchMenu() {
-        printMenu(mDinnerMenu.createIterator());
+        MenuComponent menuComponent = allMenus.getChild(1);
+        menuComponent.print();
     }
 
     void printVegetarianMenu() {
-//        printVegetarianMenu(mPancakeHouseMenu.createIterator());
-//        printVegetarianMenu(mDinnerMenu.createIterator());
-//        printVegetarianMenu(mCafeMenu.createIterator());
-
-        Iterator<IMenu> iterator = mMenus.iterator();
+        Iterator iterator = allMenus.createIterator();
         while (iterator.hasNext()) {
-            IMenu menu = iterator.next();
-            printVegetarianMenu(menu.createIterator());
-        }
-    }
-
-    private void printVegetarianMenu(Iterator iterator) {
-        while (iterator.hasNext()) {
-            MenuItem menuItem = (MenuItem) iterator.next();
-            if (null != menuItem) {
-                if (menuItem.isVegetarian()) {
-                    System.out.println(menuItem.toString());
+            MenuComponent menuComponent = (MenuComponent) iterator.next();
+            try {
+                if (menuComponent.isVegetarian()) {
+                    menuComponent.print();
                 }
+            } catch (UnsupportedOperationException e) {
+
             }
         }
     }
-
 
     boolean isItemVegetarian(String name) {
-//        if (isItemVegetarian(mPancakeHouseMenu.createIterator(), name)) {
-//            return true;
-//        }
-//        if (isItemVegetarian(mDinnerMenu.createIterator(), name)) {
-//            return true;
-//        }
-//
-//        if (isItemVegetarian(mCafeMenu.createIterator(), name)) {
-//            return true;
-//        }
-
-        Iterator<IMenu> iterator = mMenus.iterator();
+        Iterator iterator = allMenus.createIterator();
         while (iterator.hasNext()) {
-            IMenu menu = iterator.next();
-            if (isItemVegetarian(menu.createIterator(), name)) {
-                return true;
-            }
-        }
-
-
-        return false;
-    }
-
-    private boolean isItemVegetarian(Iterator iterator, String name) {
-        while (iterator.hasNext()) {
-            MenuItem menuItem = (MenuItem) iterator.next();
-            if (null != menuItem) {
-                if (menuItem.getName().equalsIgnoreCase(name)) {
-                    return true;
+            MenuComponent menuComponent = (MenuComponent) iterator.next();
+            try {
+                if (menuComponent.getName().equalsIgnoreCase(name)) {
+                    return menuComponent.isVegetarian();
                 }
+            } catch (UnsupportedOperationException e) {
+
             }
         }
         return false;
