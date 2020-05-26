@@ -8,7 +8,7 @@ public interface State {
     void ejectQuarter();
 
     // 动作：转动曲柄
-    void turnCrank();
+    boolean turnCrank();
 
     // 动作：发放糖果
     void dispense();

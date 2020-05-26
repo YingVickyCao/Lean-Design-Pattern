@@ -4,22 +4,12 @@ package com.hades.example.designpatterns.status.after;
  * 糖果销售机
  */
 public class GumballMachine {
-    // 售完糖果
-    public final static int STATUS_SOLD_OUT = 0;
-    State soldOutState;
+    State soldOutState;     // 售完糖果
+    State soldState;        // 售出糖果
+    State noQuarterState;   // 没有25分钱
+    State hasQuarter;       // 有25分钱
+    State winnerQuarter;    // 抽中10%赢的机会
 
-    // 售出糖果
-    public final static int STATUS_SOLD = 1;
-    State soldState;
-    // 没有25分钱
-    public final static int STATUS_NO_QUARTER = 2;
-    State noQuarterState;
-
-    // 有25分钱
-    public final static int STATUS_HAS_QUARTER = 3;
-    State hasQuarter;
-
-    //    int state = STATUS_SOLD_OUT;
     State state = soldOutState;
 
     // 糖果数目
@@ -31,6 +21,7 @@ public class GumballMachine {
         soldState = new SoldStatus(this);
         noQuarterState = new NoQuarterState(this);
         hasQuarter = new HasQuarterState(this);
+        winnerQuarter = new SoldWithWinnerState(this);
 
         this.count = count;
         if (count > 0) {
@@ -55,8 +46,9 @@ public class GumballMachine {
 
     // 动作：转动曲柄
     public void turnCrank() {
-        state.turnCrank();
-        state.dispense();
+        if (state.turnCrank()) {
+            state.dispense();
+        }
     }
 
     void releaseBall() {
@@ -84,6 +76,10 @@ public class GumballMachine {
 
     public State getNoQuarterState() {
         return noQuarterState;
+    }
+
+    public State getWinnerQuarter() {
+        return winnerQuarter;
     }
 
     public State getState() {
