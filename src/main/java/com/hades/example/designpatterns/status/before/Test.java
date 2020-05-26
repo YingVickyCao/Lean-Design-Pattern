@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.status;
+package com.hades.example.designpatterns.status.before;
 
 public class Test {
     public static void main(String[] args){
