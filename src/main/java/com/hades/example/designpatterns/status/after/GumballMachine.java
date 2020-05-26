@@ -6,111 +6,94 @@ package com.hades.example.designpatterns.status.after;
 public class GumballMachine {
     // 售完糖果
     public final static int STATUS_SOLD_OUT = 0;
+    State soldOutState;
+
     // 售出糖果
     public final static int STATUS_SOLD = 1;
+    State soldState;
     // 没有25分钱
     public final static int STATUS_NO_QUARTER = 2;
+    State noQuarterState;
+
     // 有25分钱
     public final static int STATUS_HAS_QUARTER = 3;
+    State hasQuarter;
 
-    int state = STATUS_SOLD_OUT;
+    //    int state = STATUS_SOLD_OUT;
+    State state = soldOutState;
+
     // 糖果数目
     int count = 0;
 
+
     public GumballMachine(int count) {
+        soldOutState = new SoldOutState(this);
+        soldState = new SoldStatus(this);
+        noQuarterState = new NoQuarterState(this);
+        hasQuarter = new HasQuarterState(this);
+
         this.count = count;
         if (count > 0) {
-            state = STATUS_NO_QUARTER;
+//            state = STATUS_NO_QUARTER;
+            state = noQuarterState;
         }
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 
     // 动作：投入25分钱
     public void insertQuarter() {
-        if (state == STATUS_HAS_QUARTER) {
-            System.out.println("Can not insert another quarter");
-        } else if (state == STATUS_SOLD_OUT) {
-            System.out.println("Can not insert quarter. sold out");
-        } else if (state == STATUS_SOLD) {
-            System.out.println("Please Wait. Giving a gumball.");
-        } else if (state == STATUS_NO_QUARTER) {
-            state = STATUS_HAS_QUARTER;
-            System.out.println("Inserted a quarter");
-        }
+        state.insertQuarter();
     }
 
     // 动作：退回25分钱
     public void ejectQuarter() {
-        if (state == STATUS_HAS_QUARTER) {
-            state = STATUS_NO_QUARTER;
-        } else if (state == STATUS_NO_QUARTER) {
-            System.out.println("Haven't insert quarter");
-        } else if (state == STATUS_SOLD) {
-            System.out.println("Already turned crank");
-        } else if (state == STATUS_SOLD_OUT) {
-            System.out.println("Can not eject.Haven't insert quarter");
-        }
+        state.ejectQuarter();
     }
 
     // 动作：转动曲柄
     public void turnCrank() {
-        if (state == STATUS_SOLD) {
-            state = STATUS_NO_QUARTER;
-        } else if (state == STATUS_NO_QUARTER) {
-            System.out.println("You turned, but there is no quarter");
-        } else if (state == STATUS_SOLD_OUT) {
-            System.out.println("You turned, but there is no gumball");
-        } else if (state == STATUS_HAS_QUARTER) {
-            System.out.println("You turned..");
-            state = STATUS_SOLD;
-            dispense();
-        }
+        state.turnCrank();
+        state.dispense();
     }
 
-    // 动作：发放糖果
-    public void dispense() {
-        if (state == STATUS_SOLD) {
-            // slot(窄缝)
-            System.out.println("A gumball comes rolling out the slot");
+    void releaseBall() {
+        // slot(窄缝)
+        if (count != 0) {
             count--;
-
-            // 检查糖果是否售完
-            if (count == 0) {
-                System.out.println("Out of gumballs");
-                state = STATUS_SOLD_OUT;
-            } else {
-                state = STATUS_NO_QUARTER;
-            }
-        } else if (state == STATUS_NO_QUARTER) {
-            System.out.println("Need to pay first.");
-        } else if (state == STATUS_SOLD_OUT) {
-            System.out.println("No gumball dispensed");
-        } else if (state == STATUS_HAS_QUARTER) {
-            System.out.println("No gumball dispensed");
         }
     }
 
-    private String printState(int state) {
-        switch (state) {
-            case STATUS_SOLD:
-                return "STATUS_SOLD";
+    public int getCount() {
+        return count;
+    }
 
-            case STATUS_SOLD_OUT:
-                return "STATUS_SOLD_OUT";
+    public State getHasQuarter() {
+        return hasQuarter;
+    }
 
-            case STATUS_NO_QUARTER:
-                return "STATUS_NO_QUARTER";
+    public State getSoldOutState() {
+        return soldOutState;
+    }
 
-            case STATUS_HAS_QUARTER:
-                return "STATUS_HAS_QUARTER";
+    public State getSoldState() {
+        return soldState;
+    }
 
-        }
-        return "Invalid";
+    public State getNoQuarterState() {
+        return noQuarterState;
+    }
+
+    public State getState() {
+        return state;
     }
 
     @Override
     public String toString() {
         return "GumballMachine{" +
-                "state=" + printState(state) +
+                "state=" + state.getClass().getSimpleName() +
                 ", count=" + count +
                 '}';
     }

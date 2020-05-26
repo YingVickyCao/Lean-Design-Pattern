@@ -1,0 +1,30 @@
+package com.hades.example.designpatterns.status.after;
+
+public class NoQuarterState implements State{
+    private GumballMachine mGumballMachine;
+
+    public NoQuarterState(GumballMachine gumballMachine) {
+        mGumballMachine = gumballMachine;
+    }
+
+    @Override
+    public void insertQuarter() {
+        System.out.println("Inserted a quarter");
+        mGumballMachine.setState(mGumballMachine.getHasQuarter());
+    }
+
+    @Override
+    public void ejectQuarter() {
+        System.out.println("Haven't insert quarter");
+    }
+
+    @Override
+    public void turnCrank() {
+        System.out.println("You turned, but there is no quarter");
+    }
+
+    @Override
+    public void dispense() {
+        System.out.println("Need to pay first.");
+    }
+}

@@ -41,6 +41,7 @@ public class GumballMachine {
     // 动作：退回25分钱
     public void ejectQuarter() {
         if (state == STATUS_HAS_QUARTER) {
+            System.out.println("Quarter returned");
             state = STATUS_NO_QUARTER;
         } else if (state == STATUS_NO_QUARTER) {
             System.out.println("Haven't insert quarter");
@@ -54,7 +55,7 @@ public class GumballMachine {
     // 动作：转动曲柄
     public void turnCrank() {
         if (state == STATUS_SOLD) {
-            state = STATUS_NO_QUARTER;
+            System.out.println("Turning twice doesn't get you another gumball");
         } else if (state == STATUS_NO_QUARTER) {
             System.out.println("You turned, but there is no quarter");
         } else if (state == STATUS_SOLD_OUT) {
