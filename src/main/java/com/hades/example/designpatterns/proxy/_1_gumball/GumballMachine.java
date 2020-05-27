@@ -14,9 +14,12 @@ public class GumballMachine {
 
     // 糖果数目
     int count = 0;
+    String location;
 
 
-    public GumballMachine(int count) {
+    public GumballMachine(String location,int count) {
+        this.location = location;
+
         soldOutState = new SoldOutState(this);
         soldState = new SoldStatus(this);
         noQuarterState = new NoQuarterState(this);
@@ -32,6 +35,10 @@ public class GumballMachine {
 
     public void setState(State state) {
         this.state = state;
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     // 动作：投入25分钱

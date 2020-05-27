@@ -1,7 +1,7 @@
 package com.hades.example.designpatterns.proxy._1_gumball;
 
 public class Test {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Test test = new Test();
         test.test();
 
@@ -11,8 +11,8 @@ public class Test {
     }
 
 
-    private void test(){
-        GumballMachine machine = new GumballMachine(5);
+    private void test() {
+        GumballMachine machine = new GumballMachine("Location_1", 5);
         System.out.println(machine.toString());
         System.out.println();
 
