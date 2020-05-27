@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._1_gumball;
+package com.hades.example.designpatterns.proxy._2_gumball_remote_proxy;
 
 /**
  * 糖果销售机

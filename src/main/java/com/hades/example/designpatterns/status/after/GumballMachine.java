@@ -10,7 +10,7 @@ public class GumballMachine {
     State hasQuarter;       // 有25分钱
     State winnerQuarter;    // 抽中10%赢的机会
 
-    State state = soldOutState;
+    State state;
 
     // 糖果数目
     int count = 0;
@@ -25,8 +25,9 @@ public class GumballMachine {
 
         this.count = count;
         if (count > 0) {
-//            state = STATUS_NO_QUARTER;
             state = noQuarterState;
+        } else {
+            state = soldOutState;
         }
     }
 
