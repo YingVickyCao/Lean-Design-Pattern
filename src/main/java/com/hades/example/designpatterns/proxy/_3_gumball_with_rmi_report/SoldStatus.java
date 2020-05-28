@@ -1,10 +1,9 @@
-package com.hades.example.designpatterns.proxy._2_gumball_remote_proxy;
+package com.hades.example.designpatterns.proxy._3_gumball_with_rmi_report;
 
-
-public class SoldWithWinnerState implements State {
+public class SoldStatus implements State {
     private GumballMachine mGumballMachine;
 
-    public SoldWithWinnerState(GumballMachine gumballMachine) {
+    public SoldStatus(GumballMachine gumballMachine) {
         mGumballMachine = gumballMachine;
     }
 
@@ -26,17 +25,10 @@ public class SoldWithWinnerState implements State {
 
     @Override
     public void dispense() {
-        System.out.println("You are a Winner . You get two gumballs for your quarter");
         mGumballMachine.releaseBall();
         // 检查糖果是否售完
         if (mGumballMachine.getCount() > 0) {
-            mGumballMachine.releaseBall();
-            if (mGumballMachine.getCount() > 0) {
-                mGumballMachine.setState(mGumballMachine.getNoQuarterState());
-            } else {
-                System.out.println("Out of gumballs");
-                mGumballMachine.setState(mGumballMachine.getSoldOutState());
-            }
+            mGumballMachine.setState(mGumballMachine.getNoQuarterState());
         } else {
             System.out.println("Out of gumballs");
             mGumballMachine.setState(mGumballMachine.getSoldOutState());

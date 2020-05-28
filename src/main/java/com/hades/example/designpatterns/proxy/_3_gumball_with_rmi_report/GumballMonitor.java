@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._2_gumball_remote_proxy;
+package com.hades.example.designpatterns.proxy._3_gumball_with_rmi_report;
 
 public class GumballMonitor {
     private GumballMachine mGumballMachine;
