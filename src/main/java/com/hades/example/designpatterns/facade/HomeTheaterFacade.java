@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.facade._1_movie;
+package com.hades.example.designpatterns.facade;
 
 public class HomeTheaterFacade {
     PopcornPopper popcornPopper;

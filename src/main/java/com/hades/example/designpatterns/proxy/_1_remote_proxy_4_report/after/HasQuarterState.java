@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._1_remote_proxy.after;
+package com.hades.example.designpatterns.proxy._1_remote_proxy_4_report.after;
 
 import java.util.Random;
 

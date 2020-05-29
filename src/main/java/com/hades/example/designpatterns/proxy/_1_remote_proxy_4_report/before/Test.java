@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._1_remote_proxy.before;
+package com.hades.example.designpatterns.proxy._1_remote_proxy_4_report.before;
 
 public class Test {
     public static void main(String[] args) {

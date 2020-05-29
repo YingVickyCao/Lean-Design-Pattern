@@ -1,8 +1,6 @@
-package com.hades.example.designpatterns.proxy._1_remote_proxy.after;
+package com.hades.example.designpatterns.proxy._1_remote_proxy_4_report.before;
 
-import java.io.Serializable;
-
-public interface State extends Serializable {
+public interface State {
     // 动作：投入25分钱
     void insertQuarter();
 

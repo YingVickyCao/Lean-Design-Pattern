@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._1_remote_proxy.before;
+package com.hades.example.designpatterns.proxy._1_remote_proxy_4_report.before;
 
 /**
  * 糖果销售机
