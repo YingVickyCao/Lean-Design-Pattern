@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._1_gumball;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.before;
 
 public interface State {
     // 动作：投入25分钱

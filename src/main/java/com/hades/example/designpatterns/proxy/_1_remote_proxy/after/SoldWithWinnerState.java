@@ -1,8 +1,9 @@
-package com.hades.example.designpatterns.proxy._2_gumball_with_local_report;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.after;
 
 
 public class SoldWithWinnerState implements State {
-    private GumballMachine mGumballMachine;
+    // add transient,不需要糖果机被序列化并随着State对象一起传送
+    private transient GumballMachine mGumballMachine;
 
     public SoldWithWinnerState(GumballMachine gumballMachine) {
         mGumballMachine = gumballMachine;

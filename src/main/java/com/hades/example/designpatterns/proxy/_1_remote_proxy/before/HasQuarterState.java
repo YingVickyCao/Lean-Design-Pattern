@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._1_gumball;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.before;
 
 import java.util.Random;
 

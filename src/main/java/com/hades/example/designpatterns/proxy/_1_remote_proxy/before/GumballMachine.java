@@ -1,21 +1,20 @@
-package com.hades.example.designpatterns.proxy._1_gumball;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.before;
 
 /**
  * 糖果销售机
  */
 public class GumballMachine {
-    State soldOutState;     // 售完糖果
-    State soldState;        // 售出糖果
-    State noQuarterState;   // 没有25分钱
-    State hasQuarter;       // 有25分钱
-    State winnerQuarter;    // 抽中10%赢的机会
+    private State soldOutState;     // 售完糖果
+    private State soldState;        // 售出糖果
+    private State noQuarterState;   // 没有25分钱
+    private State hasQuarter;       // 有25分钱
+    private State winnerQuarter;    // 抽中10%赢的机会
 
-    State state;
+    private State state;
 
     // 糖果数目
-    int count = 0;
-    String location;
-
+    private int count = 0;
+    private String location;
 
     public GumballMachine(String location, int count) {
         this.location = location;

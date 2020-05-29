@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._3_gumball_with_rmi_report;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.before;
 
 public class Test {
     public static void main(String[] args) {

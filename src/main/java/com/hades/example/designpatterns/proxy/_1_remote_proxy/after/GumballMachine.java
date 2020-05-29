@@ -1,9 +1,11 @@
-package com.hades.example.designpatterns.proxy._2_gumball_with_local_report;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.after;
+
+import java.rmi.RemoteException;
 
 /**
  * 糖果销售机
  */
-public class GumballMachine {
+public class GumballMachine implements GumballMachineRemote {
     State soldOutState;     // 售完糖果
     State soldState;        // 售出糖果
     State noQuarterState;   // 没有25分钱
@@ -17,7 +19,7 @@ public class GumballMachine {
     String location;
 
 
-    public GumballMachine(String location, int count) {
+    public GumballMachine(String location, int count) throws RemoteException {
         this.location = location;
 
         soldOutState = new SoldOutState(this);

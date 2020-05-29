@@ -1,11 +1,12 @@
-package com.hades.example.designpatterns.proxy._3_gumball_with_rmi_report;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.after;
 
 import java.util.Random;
 
 public class HasQuarterState implements State {
     Random randomWinner = new Random(System.currentTimeMillis());
 
-    private GumballMachine mGumballMachine;
+    // add transient,不需要糖果机被序列化并随着State对象一起传送
+    private transient GumballMachine mGumballMachine;
 
     public HasQuarterState(GumballMachine gumballMachine) {
         mGumballMachine = gumballMachine;

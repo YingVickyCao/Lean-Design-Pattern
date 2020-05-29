@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.proxy._2_gumball_with_local_report;
+package com.hades.example.designpatterns.proxy._1_remote_proxy.before;
 
 public class SoldOutState implements State {
     private GumballMachine mGumballMachine;
