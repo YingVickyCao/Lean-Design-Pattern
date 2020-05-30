@@ -43,8 +43,16 @@ public class MatchMarking {
         System.out.println(p1.toString());
     }
 
+    /**
+     * @param bean Subject.  参数bean是Subject
+     * @return Proxy. 返回 参数bean的代理。因为代理和主题具有相同的主题，所以返回一个PersonBean
+     */
     private PersonBean getOwnerProxy(PersonBean bean) {
         // Create dynamic proxy instance
+        /**
+         * bean.getClass().getInterfaces()：代理需要实现的接口
+         * new OwnerInvocationHandler(bean)：调用处理器。此处是OwnerInvocationHandler
+         */
         return (PersonBean) Proxy.newProxyInstance(bean.getClass().getClassLoader(), bean.getClass().getInterfaces(), new OwnerInvocationHandler(bean));
     }
 
