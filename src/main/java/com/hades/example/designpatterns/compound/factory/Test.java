@@ -1,20 +1,21 @@
-package com.hades.example.designpatterns.compound.decorator;
+package com.hades.example.designpatterns.compound.factory;
 
 public class Test {
     public static void main(String[] args) {
         Test test = new Test();
-        test.simulate();
+        AbstractDuckFactory duckFactory = new CountingDuckFactory();
+        test.simulate(duckFactory);
     }
 
     //quack
     //quack
     //Kwak
     //Squeak
-    private void simulate() {
-        Quackable mallardDuck = new QuackCounter(new MallardDuck());
-        Quackable redheadDuck = new QuackCounter(new RedheadDuck());
-        Quackable duckCall = new QuackCounter(new DuckCall());
-        Quackable rubberDuck = new QuackCounter(new RubberDuck());
+    private void simulate(AbstractDuckFactory duckFactory) {
+        Quackable mallardDuck = duckFactory.createMallardDuck();
+        Quackable redheadDuck = duckFactory.createRedheadDuck();
+        Quackable duckCall = duckFactory.createDuckCall();
+        Quackable rubberDuck = duckFactory.createRubberDuck();
         Quackable gooseDuck = new GooseAdapter(new Goose());
 
         simulate(mallardDuck);
