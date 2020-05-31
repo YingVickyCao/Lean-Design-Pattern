@@ -4,13 +4,13 @@ public class BeatController implements IController {
     private IBeatModel mModel;
     private DJView mDJView;
 
-    public BeatController(IBeatModel Model) {
-        mModel = Model;
+    public BeatController(IBeatModel model) {
+        mModel = model;
 
         mDJView = new DJView(mModel, this);
         mDJView.createControls();
         mDJView.createView();
-        mDJView.disableStartMenuItem();
+        mDJView.enableStartMenuItem();
         mDJView.disableStopMenuItem();
 
         mModel.init();
@@ -26,8 +26,8 @@ public class BeatController implements IController {
     @Override
     public void stop() {
         mModel.off();
+        mDJView.enableStartMenuItem();
         mDJView.disableStopMenuItem();
-        mDJView.enableStopMenuItem();
     }
 
     @Override

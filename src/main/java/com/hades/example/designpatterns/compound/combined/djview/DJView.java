@@ -9,10 +9,9 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
     private IBeatModel model;
     private IController controller;
 
-    JFrame viewFrame;
-    JPanel viewPanel;
     BeatBar beatBar;
-    JLabel bpmOutputLabel;
+    JLabel bpmOutputLabelLeft;
+    JLabel currentBpmOutputLabel;
     JFrame controlFrame;
     JPanel controlPanel;
     JLabel bpmLabel;
@@ -50,12 +49,12 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
         if (model != null) {
             int bpm = model.getBPM();
             if (bpm == 0) {
-                if (bpmOutputLabel != null) {
-                    bpmOutputLabel.setText("offline");
+                if (currentBpmOutputLabel != null) {
+                    currentBpmOutputLabel.setText("offline");
                 }
             } else {
-                if (bpmOutputLabel != null) {
-                    bpmOutputLabel.setText("Current BPM: " + model.getBPM());
+                if (currentBpmOutputLabel != null) {
+                    currentBpmOutputLabel.setText(String.valueOf(model.getBPM()));
                 }
             }
         }
@@ -70,60 +69,54 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
 
     public void createView() {
         // Create all Swing components here
-        viewPanel = new JPanel(new GridLayout(1, 2));
-        viewFrame = new JFrame("View");
-        viewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        viewFrame.setSize(new Dimension(100, 80));
-        bpmOutputLabel = new JLabel("offline", SwingConstants.CENTER);
-        beatBar = new BeatBar();
-        beatBar.setValue(0);
-        JPanel bpmPanel = new JPanel(new GridLayout(2, 1));
-        bpmPanel.add(beatBar);
-        bpmPanel.add(bpmOutputLabel);
-        viewPanel.add(bpmPanel);
-        viewFrame.getContentPane().add(viewPanel, BorderLayout.CENTER);
-        viewFrame.pack();
-        viewFrame.setVisible(true);
     }
 
-    public void createControls() {
-        // Create all Swing components here
-        JFrame.setDefaultLookAndFeelDecorated(true);
-        controlFrame = new JFrame("Control");
-        controlFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        controlFrame.setSize(new Dimension(100, 80));
-
-        controlPanel = new JPanel(new GridLayout(1, 2));
-
-        menuBar = new JMenuBar();
+    private void setMenus(){
         menu = new JMenu("DJ Control");
+
         startMenuItem = new JMenuItem("Start");
-        menu.add(startMenuItem);
         startMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 controller.start();
             }
         });
+        menu.add(startMenuItem);
+
         stopMenuItem = new JMenuItem("Stop");
-        menu.add(stopMenuItem);
         stopMenuItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 controller.stop();
             }
         });
+        menu.add(stopMenuItem);
+
+
         JMenuItem exit = new JMenuItem("Quit");
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 System.exit(0);
             }
         });
-
         menu.add(exit);
-        menuBar.add(menu);
-        controlFrame.setJMenuBar(menuBar);
+    }
+    public void createControls() {
+        // Create all Swing components here
+//        JFrame.setDefaultLookAndFeelDecorated(true);
+        controlFrame = new JFrame("Control");
+        controlFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        controlFrame.setSize(new Dimension(100, 80));
+
+        controlPanel = new JPanel(new GridLayout(1, 2));
+
+
+        setMenus();
 
         bpmTextField = new JTextField(2);
         bpmLabel = new JLabel("Enter BPM:", SwingConstants.RIGHT);
+
+        bpmOutputLabelLeft = new JLabel("Current BPM:");
+        currentBpmOutputLabel = new JLabel("offline");
+
         setBPMButton = new JButton("Set");
         setBPMButton.setSize(new Dimension(10, 40));
         increaseBPMButton = new JButton(">>");
@@ -132,25 +125,39 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
         increaseBPMButton.addActionListener(this);
         decreaseBPMButton.addActionListener(this);
 
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
-
-        buttonPanel.add(decreaseBPMButton);
-        buttonPanel.add(increaseBPMButton);
-
         JPanel enterPanel = new JPanel(new GridLayout(1, 2));
         enterPanel.add(bpmLabel);
         enterPanel.add(bpmTextField);
-        JPanel insideControlPanel = new JPanel(new GridLayout(3, 1));
+
+        JPanel outputPanel = new JPanel(new GridLayout(1, 2));
+        outputPanel.add(bpmOutputLabelLeft);
+        outputPanel.add(currentBpmOutputLabel);
+
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
+        buttonPanel.add(decreaseBPMButton);
+        buttonPanel.add(increaseBPMButton);
+
+        JPanel insideControlPanel = new JPanel(new GridLayout(4, 1));
         insideControlPanel.add(enterPanel);
+        insideControlPanel.add(outputPanel);
         insideControlPanel.add(setBPMButton);
         insideControlPanel.add(buttonPanel);
         controlPanel.add(insideControlPanel);
 
-        bpmLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        bpmOutputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        beatBar = new BeatBar();
+        beatBar.setValue(0);
+        JPanel bpmPanel = new JPanel(new GridLayout(2, 1));
+        bpmPanel.add(beatBar);
+        controlPanel.add(bpmPanel);
 
+        bpmLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        currentBpmOutputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+        menuBar = new JMenuBar();
+        menuBar.add(menu);
+        controlFrame.setJMenuBar(menuBar);
         controlFrame.getRootPane().setDefaultButton(setBPMButton);
-        controlFrame.getContentPane().add(controlPanel, BorderLayout.CENTER);
+        controlFrame.getContentPane().add(controlPanel);
 
         controlFrame.pack();
         controlFrame.setVisible(true);
