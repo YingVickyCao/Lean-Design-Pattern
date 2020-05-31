@@ -10,11 +10,9 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
     private IController controller;
 
     BeatBar beatBar;
-    JLabel bpmOutputLabelLeft;
     JLabel currentBpmOutputLabel;
     JFrame controlFrame;
     JPanel controlPanel;
-    JLabel bpmLabel;
     JTextField bpmTextField;
     JButton setBPMButton;
     JButton increaseBPMButton;
@@ -71,7 +69,7 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
         // Create all Swing components here
     }
 
-    private void setMenus(){
+    private void setMenus() {
         menu = new JMenu("DJ Control");
 
         startMenuItem = new JMenuItem("Start");
@@ -90,7 +88,6 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
         });
         menu.add(stopMenuItem);
 
-
         JMenuItem exit = new JMenuItem("Quit");
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
@@ -99,47 +96,28 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
         });
         menu.add(exit);
     }
+
     public void createControls() {
         // Create all Swing components here
-//        JFrame.setDefaultLookAndFeelDecorated(true);
+        JFrame.setDefaultLookAndFeelDecorated(true);
         controlFrame = new JFrame("Control");
         controlFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         controlFrame.setSize(new Dimension(100, 80));
 
         controlPanel = new JPanel(new GridLayout(1, 2));
-
-
         setMenus();
 
-        bpmTextField = new JTextField(2);
-        bpmLabel = new JLabel("Enter BPM:", SwingConstants.RIGHT);
-
-        bpmOutputLabelLeft = new JLabel("Current BPM:");
-        currentBpmOutputLabel = new JLabel("offline");
-
-        setBPMButton = new JButton("Set");
-        setBPMButton.setSize(new Dimension(10, 40));
-        increaseBPMButton = new JButton(">>");
-        decreaseBPMButton = new JButton("<<");
-        setBPMButton.addActionListener(this);
-        increaseBPMButton.addActionListener(this);
-        decreaseBPMButton.addActionListener(this);
-
-        JPanel enterPanel = new JPanel(new GridLayout(1, 2));
-        enterPanel.add(bpmLabel);
-        enterPanel.add(bpmTextField);
-
-        JPanel outputPanel = new JPanel(new GridLayout(1, 2));
-        outputPanel.add(bpmOutputLabelLeft);
-        outputPanel.add(currentBpmOutputLabel);
+        setBPMSetButton();
+        setIncreaseBPMButton();
+        setDecreaseBPMButton();
 
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
         buttonPanel.add(decreaseBPMButton);
         buttonPanel.add(increaseBPMButton);
 
         JPanel insideControlPanel = new JPanel(new GridLayout(4, 1));
-        insideControlPanel.add(enterPanel);
-        insideControlPanel.add(outputPanel);
+        insideControlPanel.add(setEnterViews());
+        insideControlPanel.add(setOutputViews());
         insideControlPanel.add(setBPMButton);
         insideControlPanel.add(buttonPanel);
         controlPanel.add(insideControlPanel);
@@ -149,18 +127,53 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
         JPanel bpmPanel = new JPanel(new GridLayout(2, 1));
         bpmPanel.add(beatBar);
         controlPanel.add(bpmPanel);
-
-        bpmLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         currentBpmOutputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         menuBar = new JMenuBar();
         menuBar.add(menu);
+
         controlFrame.setJMenuBar(menuBar);
         controlFrame.getRootPane().setDefaultButton(setBPMButton);
         controlFrame.getContentPane().add(controlPanel);
-
         controlFrame.pack();
         controlFrame.setVisible(true);
+    }
+
+    private JPanel setEnterViews() {
+        JPanel enterPanel = new JPanel(new GridLayout(1, 2));
+
+        JLabel bpmLabel = new JLabel("Enter BPM:", SwingConstants.RIGHT);
+        bpmLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        enterPanel.add(bpmLabel);
+
+        bpmTextField = new JTextField(2);
+        enterPanel.add(bpmTextField);
+        return enterPanel;
+    }
+
+    private JPanel setOutputViews(){
+        JPanel outputPanel = new JPanel(new GridLayout(1, 2));
+        JLabel bpmOutputLabelLeft = new JLabel("Current BPM:");
+        currentBpmOutputLabel = new JLabel("offline");
+        outputPanel.add(bpmOutputLabelLeft);
+        outputPanel.add(currentBpmOutputLabel);
+        return outputPanel;
+    }
+
+    private void setBPMSetButton() {
+        setBPMButton = new JButton("Set");
+        setBPMButton.setSize(new Dimension(10, 40));
+        setBPMButton.addActionListener(this);
+    }
+
+    private void setIncreaseBPMButton() {
+        increaseBPMButton = new JButton(">>");
+        increaseBPMButton.addActionListener(this);
+    }
+
+    private void setDecreaseBPMButton() {
+        decreaseBPMButton = new JButton("<<");
+        decreaseBPMButton.addActionListener(this);
     }
 
     public void enableStopMenuItem() {

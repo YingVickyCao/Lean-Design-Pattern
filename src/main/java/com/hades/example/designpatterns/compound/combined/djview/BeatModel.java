@@ -26,7 +26,9 @@ public class BeatModel implements IBeatModel, MetaEventListener {
             Sequencer.addMetaEventListener(this);
 
             mSequence = new Sequence(Sequence.PPQ, 4);
+
             mTrack = mSequence.createTrack();
+
             Sequencer.setTempoInBPM(getBPM());
             Sequencer.setLoopCount(Sequencer.LOOP_CONTINUOUSLY);
         } catch (Exception e) {
