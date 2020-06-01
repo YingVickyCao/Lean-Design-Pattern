@@ -61,7 +61,6 @@ public class BeatModel implements IBeatModel, MetaEventListener {
     }
 
     public void makeTracks(int[] list) {
-
         for (int i = 0; i < list.length; i++) {
             int key = list[i];
 

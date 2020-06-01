@@ -7,7 +7,7 @@ public class BeatController implements IController {
     public BeatController(IBeatModel model) {
         mModel = model;
 
-        mDJView = new DJView(mModel, this);
+        mDJView = new DJView(this, mModel);
         mDJView.createControls();
         mDJView.createView();
         mDJView.enableStartMenuItem();

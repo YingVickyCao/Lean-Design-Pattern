@@ -22,7 +22,7 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
     JMenuItem startMenuItem;
     JMenuItem stopMenuItem;
 
-    public DJView(IBeatModel model, IController controller) {
+    public DJView(IController controller, IBeatModel model) {
         this.model = model;
         this.controller = controller;
 
@@ -151,7 +151,7 @@ public class DJView implements ActionListener, BeatObserver, BPMObserver {
         return enterPanel;
     }
 
-    private JPanel setOutputViews(){
+    private JPanel setOutputViews() {
         JPanel outputPanel = new JPanel(new GridLayout(1, 2));
         JLabel bpmOutputLabelLeft = new JLabel("Current BPM:");
         currentBpmOutputLabel = new JLabel("offline");
