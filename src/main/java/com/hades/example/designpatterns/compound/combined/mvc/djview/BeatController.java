@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.compound.combined.djview;
+package com.hades.example.designpatterns.compound.combined.mvc.djview;
 
 public class BeatController implements IController {
     private IBeatModel mModel;

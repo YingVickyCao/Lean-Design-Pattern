@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.status.after;
+package com.hades.example.designpatterns.state.after;
 
 /**
  * 糖果销售机

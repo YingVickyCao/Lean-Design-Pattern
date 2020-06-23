@@ -1,9 +1,13 @@
-package com.hades.example.designpatterns.status.before;
+package com.hades.example.designpatterns.state.after;
 
 public class Test {
     public static void main(String[] args){
         Test test = new Test();
         test.test();
+
+//        Random randomWinner = new Random(System.currentTimeMillis());
+//        int winner = randomWinner.nextInt(10);
+//        System.out.println(winner);
     }
 
 

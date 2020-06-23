@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.compound.combined.djview;
+package com.hades.example.designpatterns.compound.combined.mvc.djview;
 
 import java.util.ArrayList;
 import java.util.Random;

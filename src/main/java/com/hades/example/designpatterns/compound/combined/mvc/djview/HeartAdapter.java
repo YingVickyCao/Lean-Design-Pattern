@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.compound.combined.djview;
+package com.hades.example.designpatterns.compound.combined.mvc.djview;
 
 public class HeartAdapter implements IBeatModel{
     IHeartModel heart;

@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.status.after;
+package com.hades.example.designpatterns.state.after;
 
 public class NoQuarterState implements State{
     private GumballMachine mGumballMachine;

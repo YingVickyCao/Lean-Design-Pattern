@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.status.after;
+package com.hades.example.designpatterns.state.after;
 
 public interface State {
     // 动作：投入25分钱
