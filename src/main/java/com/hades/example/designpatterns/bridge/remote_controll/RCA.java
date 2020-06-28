@@ -1,6 +1,6 @@
 package com.hades.example.designpatterns.bridge.remote_controll;
 
-public class TV implements IDevice{
+public class RCA implements ITV {
     private boolean on = false;
     private int volume = 30;
     private int channel = 1;

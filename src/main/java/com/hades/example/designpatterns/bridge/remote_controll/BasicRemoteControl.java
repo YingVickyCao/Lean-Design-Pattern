@@ -1,16 +1,16 @@
 package com.hades.example.designpatterns.bridge.remote_controll;
 
 public class BasicRemoteControl implements IRemoteControl {
-    protected IDevice device;
+    protected ITV device;
 
     public BasicRemoteControl() {
     }
 
-    public BasicRemoteControl(IDevice device) {
+    public BasicRemoteControl(ITV device) {
         this.device = device;
     }
 
-    public void setDevice(IDevice device) {
+    public void setDevice(ITV device) {
         this.device = device;
     }
 

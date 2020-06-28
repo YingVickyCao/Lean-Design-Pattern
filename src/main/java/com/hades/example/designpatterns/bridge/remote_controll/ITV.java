@@ -1,6 +1,6 @@
 package com.hades.example.designpatterns.bridge.remote_controll;
 
-public interface IDevice {
+public interface ITV {
     void on();
 
     void off();

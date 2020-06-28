@@ -3,7 +3,7 @@ package com.hades.example.designpatterns.bridge.remote_controll;
 public class AdvancedRemoteControl extends BasicRemoteControl {
     private int lastVolume = -1;
 
-    public AdvancedRemoteControl(IDevice device) {
+    public AdvancedRemoteControl(ITV device) {
         super(device);
     }
 

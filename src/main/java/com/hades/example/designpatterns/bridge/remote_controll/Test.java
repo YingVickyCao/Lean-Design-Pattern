@@ -2,11 +2,11 @@ package com.hades.example.designpatterns.bridge.remote_controll;
 
 public class Test {
     public static void main(String[] args) {
-        testDevice(new Radio());
-        testDevice(new TV());
+        testDevice(new Sony());
+        testDevice(new RCA());
     }
 
-    private static void testDevice(IDevice device) {
+    private static void testDevice(ITV device) {
         BasicRemoteControl basicRemoteControl = new BasicRemoteControl(device);
         basicRemoteControl.power();
         System.out.println(basicRemoteControl.toString());

@@ -1,6 +1,6 @@
 package com.hades.example.designpatterns.bridge.remote_controll;
 
-public class Radio implements IDevice {
+public class Sony implements ITV {
     private boolean on = false;
     private int volume = 10;
     private int channel = 1;
