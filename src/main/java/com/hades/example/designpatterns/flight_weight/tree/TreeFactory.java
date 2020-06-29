@@ -48,7 +48,7 @@ public class TreeFactory {
 
         if (tree == null) {
             tree = new ConiferTree();
-            System.out.println("Creating ConiferTree : ");
+            System.out.println("Creating ConiferTree");
         }
         return tree;
     }

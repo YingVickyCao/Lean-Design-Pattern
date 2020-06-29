@@ -8,17 +8,21 @@ public class Test {
         TreeFactory treeFactory = new TreeFactory();
         Tree deciduousTree;
         Tree coniferTree;
-
         try {
             deciduousTree = treeFactory.getTree("deciduous");
             coniferTree = treeFactory.getTree("conifer");
 
-            for (int[] location : deciduousLocations) {
-                deciduousTree.display(location[0], location[1]);
-            }
+            displayTrees(deciduousTree, deciduousLocations);
+            displayTrees(coniferTree, coniferLocations);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
-            for (int[] location : coniferLocations) {
-                coniferTree.display(location[0], location[1]);
+    private static void displayTrees(Tree tree, int[][] locations) {
+        try {
+            for (int[] location : locations) {
+                tree.display(location[0], location[1]);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
