@@ -1,5 +1,7 @@
 package com.hades.example.designpatterns.prototype.deep_clone._2;
 
+import java.io.IOException;
+
 public class WhiteDog extends Dog {
     public WhiteDog(String name, int age) {
         super(name);
@@ -13,7 +15,7 @@ public class WhiteDog extends Dog {
 
     // Each concrete Dog could determine how best to clone itself
     @Override
-    public Dog copy() throws CloneNotSupportedException {
-        return (Dog) this.clone();
+    public Dog copy() throws IOException, ClassNotFoundException {
+        return this.deepClone();
     }
 }

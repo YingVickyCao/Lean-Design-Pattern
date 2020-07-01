@@ -1,5 +1,7 @@
 package com.hades.example.designpatterns.prototype.deep_clone._2;
 
+import java.io.IOException;
+
 public class Test {
     public static void main(String[] args) {
         Dog whiteDog = new WhiteDog("Teddy", 2); // prototype for all white dogs
@@ -29,7 +31,7 @@ public class Test {
         try {
             newDog = dogToCopy.copy();
             newDog.setName(name);
-        } catch (CloneNotSupportedException e) {
+        } catch (IOException | ClassNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

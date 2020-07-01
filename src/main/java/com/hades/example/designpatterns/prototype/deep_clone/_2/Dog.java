@@ -2,7 +2,7 @@ package com.hades.example.designpatterns.prototype.deep_clone._2;
 
 import java.io.*;
 
-public abstract class Dog implements Cloneable, Serializable {
+public abstract class Dog implements Serializable {
     protected String name;
     protected int age;
     protected String food;
@@ -22,18 +22,7 @@ public abstract class Dog implements Cloneable, Serializable {
         // Default is do nothing
     }
 
-    public abstract Dog copy() throws CloneNotSupportedException;
-
-    /**
-     * Deep Clone -  Way 1
-     */
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        ParamBean paramBean = (ParamBean) mParamBean.clone();//对其引用变量进行拷贝
-        Dog dog = (Dog) super.clone();//自身拷贝
-        dog.mParamBean = paramBean;//引用变量重新赋值。
-        return dog;
-    }
+    public abstract Dog copy() throws IOException, ClassNotFoundException;
 
     /**
      * Deep Clone -  Way 2
