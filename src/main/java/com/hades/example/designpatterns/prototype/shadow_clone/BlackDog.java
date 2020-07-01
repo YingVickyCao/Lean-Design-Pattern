@@ -7,6 +7,10 @@ public class BlackDog extends Dog {
     }
 
     // Each concrete Dog could determine how best to clone itself
+
+    /**
+     * Shadow Clone
+     */
     @Override
     public Dog copy() throws CloneNotSupportedException {
         return (Dog) this.clone();
