@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.prototype.deep_clone;
+package com.hades.example.designpatterns.prototype.deep_clone._2;
 
 public class Test {
     public static void main(String[] args) {

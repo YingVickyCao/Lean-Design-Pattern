@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.prototype.deep_clone;
+package com.hades.example.designpatterns.prototype.deep_clone._2;
 
 import java.io.Serializable;
 
