@@ -1,8 +1,6 @@
-package com.hades.example.designpatterns.prototype.deep_clone;
+package com.hades.example.designpatterns.prototype.deep_clone._1;
 
-import java.io.Serializable;
-
-public class ParamBean implements Cloneable, Serializable {
+public class ParamBean implements Cloneable {
     String color = "Red";
 
     public ParamBean(String color) {

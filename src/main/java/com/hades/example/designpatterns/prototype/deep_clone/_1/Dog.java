@@ -1,8 +1,6 @@
-package com.hades.example.designpatterns.prototype.deep_clone;
+package com.hades.example.designpatterns.prototype.deep_clone._1;
 
-import java.io.*;
-
-public abstract class Dog implements Cloneable, Serializable {
+public abstract class Dog implements Cloneable {
     protected String name;
     protected int age;
     protected String food;
@@ -33,19 +31,6 @@ public abstract class Dog implements Cloneable, Serializable {
         Dog dog = (Dog) super.clone();//自身拷贝
         dog.mParamBean = paramBean;//引用变量重新赋值。
         return dog;
-    }
-
-    /**
-     * Deep Clone -  Way 2
-     */
-    public Dog deepClone() throws IOException, ClassNotFoundException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(this);
-
-        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-        ObjectInputStream ois = new ObjectInputStream(bis);
-        return (Dog) ois.readObject();
     }
 
     @Override
