@@ -23,7 +23,7 @@ public abstract class Dog implements Cloneable {
     public abstract Dog copy() throws CloneNotSupportedException;
 
     /**
-     * Deep Clone -  Way 1
+     * Deep Clone -  Way 1 : Custom clone()
      */
     @Override
     protected Object clone() throws CloneNotSupportedException {

@@ -25,7 +25,7 @@ public abstract class Dog implements Serializable {
     public abstract Dog copy() throws IOException, ClassNotFoundException;
 
     /**
-     * Deep Clone -  Way 2
+     * Deep Clone -  Way 2: Use Serializable to read byte stream
      */
     public Dog deepClone() throws IOException, ClassNotFoundException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
