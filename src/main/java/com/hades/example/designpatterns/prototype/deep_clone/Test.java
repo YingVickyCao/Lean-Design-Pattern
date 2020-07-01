@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.prototype.deepclone.shadow_clone;
+package com.hades.example.designpatterns.prototype.deep_clone;
 
 public class Test {
     public static void main(String[] args) {
@@ -16,11 +16,11 @@ public class Test {
         System.out.println(whiteDog2.hashCode());   // 1651191114
         System.out.println(blackDog2.hashCode());   // 1586600255
 
-        System.out.println(whiteDog2);  // Dog{name='White dog', age=2, food='null', ParamBean@'1586600255'}
+        System.out.println(whiteDog2);  // Dog{name='White dog', age=2, food='null', ParamBean@'1579572132'}
         whiteDog2.jump();               // White dog can jump
         System.out.println();
 
-        System.out.println(blackDog2);  // Dog{name='Black dog', age=0, food='Canned beef', ParamBean@'474675244'}
+        System.out.println(blackDog2);  // Dog{name='Black dog', age=0, food='Canned beef', ParamBean@'359023572'}
         blackDog2.jump();
     }
 

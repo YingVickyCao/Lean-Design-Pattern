@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.prototype.deepclone.shadow_clone;
+package com.hades.example.designpatterns.prototype.deep_clone;
 
 public class WhiteDog extends Dog {
     public WhiteDog(String name, int age) {

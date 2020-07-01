@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.prototype.deepclone.shadow_clone;
+package com.hades.example.designpatterns.prototype.deep_clone;
 
 public abstract class Dog implements Cloneable {
     protected String name;
@@ -9,7 +9,7 @@ public abstract class Dog implements Cloneable {
 
     public Dog(String name) {
         this.name = name;
-        mParamBean = new ParamBean();
+        mParamBean = new ParamBean("");
     }
 
     public void setName(String name) {
@@ -21,6 +21,14 @@ public abstract class Dog implements Cloneable {
     }
 
     public abstract Dog copy() throws CloneNotSupportedException;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        ParamBean paramBean = (ParamBean) mParamBean.clone();//对其引用变量进行拷贝
+        Dog dog = (Dog) super.clone();//自身拷贝
+        dog.mParamBean = paramBean;//引用变量重新赋值。
+        return dog;
+    }
 
     @Override
     public String toString() {
