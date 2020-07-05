@@ -15,4 +15,8 @@ public class Computer implements IComputerElement {
         mKeyboard.accept(visitor);
         visitor.visit(this);
     }
+
+    public int getPrice(){
+        return 10000;
+    }
 }
