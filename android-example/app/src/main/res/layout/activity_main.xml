@@ -7,60 +7,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="MVP Example"
+        android:text="Example"
         android:textSize="25sp" />
-
-    <EditText
-        android:id="@+id/userId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="lu12344" />
-
-
-    <EditText
-        android:id="@+id/userPwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userId"
-        android:layout_centerHorizontal="true"
-        android:text="test123456" />
-
-    <TextView
-        android:id="@+id/errorTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userPwd"
-        android:layout_centerInParent="true"
-        android:textColor="@android:color/holo_red_light" />
-
-    <ProgressBar
-        android:id="@+id/loadingView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userPwd"
-        android:layout_centerInParent="true"
-        android:visibility="gone" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/next"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="Login"
-        android:textAllCaps="false" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/next"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:enabled="false"
-        android:gravity="center"
-        android:text="Next"
-        android:textAllCaps="false" />
 </RelativeLayout>

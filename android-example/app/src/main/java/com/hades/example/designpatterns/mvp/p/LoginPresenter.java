@@ -1,6 +1,9 @@
-package com.hades.example.designpatterns.mvp;
+package com.hades.example.designpatterns.mvp.p;
 
 import androidx.annotation.NonNull;
+
+import com.hades.example.designpatterns.mvp.LoginContract;
+import com.hades.example.designpatterns.mvp.m.LoginResponseBean;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -59,6 +62,10 @@ public class LoginPresenter implements LoginContract.IPresenter {
         if (null == menus || menus.isEmpty()) {
             return null;
         }
-        return menus.toString();
+        StringBuilder result = new StringBuilder();
+        for (String menu : menus) {
+            result.append(menu).append("\n");
+        }
+        return result.toString();
     }
 }

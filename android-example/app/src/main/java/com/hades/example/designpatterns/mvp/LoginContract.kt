@@ -1,5 +1,7 @@
 package com.hades.example.designpatterns.mvp
 
+import com.hades.example.designpatterns.mvp.p.ICallback
+
 interface LoginContract {
     interface IView {
         fun showLoading()

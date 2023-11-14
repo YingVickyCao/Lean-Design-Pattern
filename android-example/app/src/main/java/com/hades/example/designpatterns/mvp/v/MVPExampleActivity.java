@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.mvp;
+package com.hades.example.designpatterns.mvp.v;
 
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hades.example.designpatterns.R;
+import com.hades.example.designpatterns.mvp.LoginContract;
+import com.hades.example.designpatterns.mvp.m.LoginModel;
+import com.hades.example.designpatterns.mvp.p.LoginPresenter;
 
 /**
  * <pre>
@@ -34,7 +37,7 @@ import com.hades.example.designpatterns.R;
  *
  * <pre/>
  */
-public class MainActivity extends AppCompatActivity implements LoginContract.IView {
+public class MVPExampleActivity extends AppCompatActivity implements LoginContract.IView {
     View loadingView;
     EditText userIdView;
     EditText userPwdView;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements LoginContract.IVi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mvp_example);
 
         loadingView = findViewById(R.id.loadingView);
         errorTip = findViewById(R.id.errorTip);
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements LoginContract.IVi
             loginBtn.setEnabled(false);
             userIdView.setEnabled(false);
             userPwdView.setEnabled(false);
-            Toast.makeText(MainActivity.this, menus, Toast.LENGTH_LONG).show();
+            Toast.makeText(MVPExampleActivity.this, "You can access below menus:" + menus, Toast.LENGTH_LONG).show();
         });
     }
 
