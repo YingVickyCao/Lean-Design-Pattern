@@ -20,7 +20,20 @@ import java.util.List;
 public class LoginModel implements LoginContract.IModel {
     private static final String TAG = "LoginModel";
 
+    private ICallback callback;
+
     String menus;
+
+    @Override
+    public void setCallback(@NonNull ICallback callback) {
+        this.callback = callback;
+    }
+
+    @Override
+    public void login(@Nullable String userId, @NonNull String userPwd) {
+        mockLoginRequestSuccess(userId, userPwd, callback);
+//        mockLoginRequestFailed(userId, userPwd, callback);
+    }
 
     @Override
     public void login(@Nullable String userId, @Nullable String userPwd, @NonNull ICallback callback) {

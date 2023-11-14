@@ -13,11 +13,16 @@ interface LoginContract {
     }
 
     interface IController {
-        fun onLoginBtnClick(userId: String, userPwd: String);
+        fun onLoginBtnClick(userId: String, userPwd: String)
+        fun isValidUserId(userId: String?): Boolean
+        fun isValidUserPwd(userId: String?): Boolean
+        fun convertLoginMenus(menus: List<String>): String
     }
 
     interface IModel {
+        fun setCallback(callback: ICallback)
         fun login(userId: String?, userPwd: String?, callback: ICallback)
+        fun login(userId: String?, userPwd: String)
         fun setMenus(menus: String);
     }
 }

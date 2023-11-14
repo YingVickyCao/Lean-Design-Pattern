@@ -12,7 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hades.example.designpatterns.R;
+import com.hades.example.designpatterns.mvc.v1.m.LoginResponseBean;
 import com.hades.example.designpatterns.mvc.v2.LoginContract;
+import com.hades.example.designpatterns.mvc.v2.c.ICallback;
 import com.hades.example.designpatterns.mvc.v2.c.LoginController;
 import com.hades.example.designpatterns.mvc.v2.m.LoginModel;
 
@@ -33,19 +35,18 @@ import com.hades.example.designpatterns.mvc.v2.m.LoginModel;
  *
  * V(View)：视图层。
  * （1）、传递用户事件
- * （2）、接受来自P层的数据并显示。
+ * （2）、接受来自Model层的数据并显示。
  *
  * <pre/>
  */
 
 /**
  * Android:
- * View ：xml，Activity
- * Controller ： Activity
- * Model：数据层
- * 可以看出，Android 即是View 也是 Controller。
+ * View ：Activity
+ * Controller ： LoginController
+ * Model：LoginModel
  */
-public class MVCExampleActivity extends AppCompatActivity implements LoginContract.IView, LoginContract.IController {
+public class MVCExampleActivity extends AppCompatActivity implements LoginContract.IView, ICallback {
     View loadingView;
     EditText userIdView;
     EditText userPwdView;
@@ -69,10 +70,23 @@ public class MVCExampleActivity extends AppCompatActivity implements LoginContra
 
         loginBtn.setOnClickListener(v -> clickLogin());
 
-        mController = new LoginController(this, new LoginModel());
+        LoginModel model = new LoginModel();
+        model.setCallback(this);
+        mController = new LoginController(model);
     }
 
     private void clickLogin() {
+        String userId = userIdView.getText().toString();
+        String userPwd = userPwdView.getText().toString();
+        if (!mController.isValidUserId(userId)) {
+            setUserIdError(1, "user id is empty");
+            return;
+        }
+        if (!mController.isValidUserPwd(userPwd)) {
+            setUserPwdError(2, "user password is empty");
+            return;
+        }
+        showLoading();
         mController.onLoginBtnClick(userIdView.getText().toString(), userPwdView.getText().toString());
     }
 
@@ -119,7 +133,19 @@ public class MVCExampleActivity extends AppCompatActivity implements LoginContra
     }
 
     @Override
-    public void onLoginBtnClick(@NonNull String userId, @NonNull String userPwd) {
+    public void onSuccess(@NonNull LoginResponseBean responseBean) {
+        hideLoading();
+        if (!responseBean.isSuccess() || null == responseBean.getMenus() || responseBean.getMenus().isEmpty()) {
+            loginFailure(0, "login response data is invalid");
+            return;
+        }
+        String menus = mController.convertLoginMenus(responseBean.getMenus());
+        loginSuccess(menus);
+    }
 
+    @Override
+    public void onError(int errorCode, @NonNull String error) {
+        hideLoading();
+        loginFailure(errorCode, error);
     }
 }

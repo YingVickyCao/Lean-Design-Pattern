@@ -46,7 +46,7 @@ import java.util.List;
  * Android:
  * View ：xml，Activity
  * Controller ： Activity
- * Model：数据层
+ * Model：LoginModel
  * 可以看出，Android 即是View 也是 Controller。
  */
 public class MVCExampleActivity extends AppCompatActivity implements LoginContract.IView, LoginContract.IController, ICallback {
@@ -58,8 +58,6 @@ public class MVCExampleActivity extends AppCompatActivity implements LoginContra
     Button nextBtn;
 
     private LoginContract.IModel mModel;
-//    private LoginContract.IModel mController;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

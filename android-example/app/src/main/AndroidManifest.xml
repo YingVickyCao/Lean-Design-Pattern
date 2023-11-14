@@ -25,7 +25,8 @@
         <!--        </activity>-->
 
         <activity android:name=".mvp.v.MVPExampleActivity" />
-        <activity android:name=".mvc.v.MVCExampleActivity" />
+        <activity android:name=".mvc.v1.c.MVCExampleActivity" />
+        <activity android:name=".mvc.v2.v.MVCExampleActivity" />
     </application>
 
 </manifest>
