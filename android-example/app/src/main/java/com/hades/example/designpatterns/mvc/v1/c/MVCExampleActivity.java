@@ -21,28 +21,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 /**
- * <pre>
- * MVC
- * M(model) : 数据层。
- * （1）、提供数据给P。
- * （2）、数据来自于I/O、DB、网络请求等。
- *
- *
- * C(Controller)：中间层。业务处理、处理数据。
- * （1）、决定是否显示View，
- * （2）、决定如何去实现业务逻辑。
- * （3）、决定如何调用model
- * （4）、大部分逻辑都会在Controller。也就是P进行数据校验，数据转化
- *
- *
- * V(View)：视图层。
- * （1）、传递用户事件
- * （2）、接受来自P层的数据并显示。
- *
- * <pre/>
- */
-
-/**
  * Android:
  * View ：xml，Activity
  * Controller ： Activity
