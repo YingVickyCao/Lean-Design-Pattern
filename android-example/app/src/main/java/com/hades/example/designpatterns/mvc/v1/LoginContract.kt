@@ -1,6 +1,6 @@
-package com.hades.example.designpatterns.mvc
+package com.hades.example.designpatterns.mvc.v1
 
-import com.hades.example.designpatterns.mvc.c.ICallback
+import com.hades.example.designpatterns.mvc.v1.c.ICallback
 
 interface LoginContract {
     interface IView {

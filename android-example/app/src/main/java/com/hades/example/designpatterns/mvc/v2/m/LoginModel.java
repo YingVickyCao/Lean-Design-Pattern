@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.mvc.m;
+package com.hades.example.designpatterns.mvc.v2.m;
 
 import android.util.Log;
 
@@ -6,8 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-import com.hades.example.designpatterns.mvc.LoginContract;
-import com.hades.example.designpatterns.mvc.c.ICallback;
+import com.hades.example.designpatterns.mvc.v2.LoginContract;
+import com.hades.example.designpatterns.mvc.v2.c.ICallback;
+import com.hades.example.designpatterns.mvc.v1.m.LoginResponseBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,8 @@ import java.util.List;
 
 public class LoginModel implements LoginContract.IModel {
     private static final String TAG = "LoginModel";
+
+    String menus;
 
     @Override
     public void login(@Nullable String userId, @Nullable String userPwd, @NonNull ICallback callback) {
@@ -30,7 +33,7 @@ public class LoginModel implements LoginContract.IModel {
             try {
                 Log.d(TAG, "login ---> :userId=" + userId);
                 Thread.sleep(5000);
-                LoginResponseBean responseBean = new LoginResponseBean(true, "");
+                com.hades.example.designpatterns.mvc.v1.m.LoginResponseBean responseBean = new LoginResponseBean(true, "");
                 List<String> menus = new ArrayList<>();
                 menus.add("Video");
                 menus.add("News");
@@ -60,5 +63,9 @@ public class LoginModel implements LoginContract.IModel {
                 callback.onError(2, ex.getMessage());
             }
         }).start();
+    }
+
+    public void setMenus(String menus) {
+        this.menus = menus;
     }
 }
