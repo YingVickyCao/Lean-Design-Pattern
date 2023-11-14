@@ -78,8 +78,7 @@ doc/.DS_Store
 # ==========
 
 # Intellij
-.idea/tasks.xml
-.idea/dictionaries
+.idea/
 
 # Keystore files
 *.jks

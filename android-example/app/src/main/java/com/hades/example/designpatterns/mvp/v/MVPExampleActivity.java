@@ -32,7 +32,7 @@ import com.hades.example.designpatterns.mvp.p.LoginPresenter;
  *
  *
  * V(View)：视图层。
- * （1）、传递用户时间
+ * （1）、传递用户事件
  * （2）、接受来自P层的数据并显示。
  *
  * <pre/>
