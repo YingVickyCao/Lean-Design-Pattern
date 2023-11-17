@@ -30,7 +30,7 @@ public class LoginModel implements LoginContract.IModel {
             try {
                 Log.d(TAG, "login ---> :userId=" + userId);
                 Thread.sleep(5000);
-                com.hades.example.designpatterns.mvc.v1.m.LoginResponseBean responseBean = new LoginResponseBean(true, "");
+                LoginResponseBean responseBean = new LoginResponseBean(true, "");
                 List<String> menus = new ArrayList<>();
                 menus.add("Video");
                 menus.add("News");
