@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.mvc.m
+package com.hades.example.designpatterns.mvc.v2.m
 
 class LoginResponseBean(val isSuccess: Boolean, val errorCode: String) {
     var menus: List<String>? = null;

@@ -13,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.hades.example.designpatterns.R;
 import com.hades.example.designpatterns.mvc.v1.LoginContract;
-import com.hades.example.designpatterns.mvc.v1.m.LoginModel;
 import com.hades.example.designpatterns.mvc.v1.m.LoginResponseBean;
+import com.hades.example.designpatterns.mvc.v1.m.LoginModel;
 
 import org.jetbrains.annotations.NotNull;
 

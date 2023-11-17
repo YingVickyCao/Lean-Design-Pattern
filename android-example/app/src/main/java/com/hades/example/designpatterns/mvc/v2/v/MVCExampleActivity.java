@@ -12,11 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hades.example.designpatterns.R;
-import com.hades.example.designpatterns.mvc.v1.m.LoginResponseBean;
 import com.hades.example.designpatterns.mvc.v2.LoginContract;
 import com.hades.example.designpatterns.mvc.v2.c.ICallback;
 import com.hades.example.designpatterns.mvc.v2.c.LoginController;
 import com.hades.example.designpatterns.mvc.v2.m.LoginModel;
+import com.hades.example.designpatterns.mvc.v2.m.LoginResponseBean;
 
 /**
  * Android:
