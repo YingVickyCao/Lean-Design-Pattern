@@ -6,8 +6,22 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.hades.example.designpatterns.R
-import com.hades.example.designpatterns.principle.srp.before.ImageLoader
+//import com.hades.example.designpatterns.principle.srp.before.ImageLoader
+import com.hades.example.designpatterns.principle.srp.after.ImageLoader
 
+/**
+ * 单一原则Single Responsibility Principle（SRP)
+ * Example : Image loader
+ * Before:
+ * [com.hades.example.designpatterns.principle.srp.before.ImageLoader] class has the whole logic of downloading image, display image and image cache.
+ *
+ * After : 
+ * Split [com.hades.example.designpatterns.principle.srp.before.ImageLoader] class to
+ * [com.hades.example.designpatterns.principle.srp.after.ImageLoader]
+ * and
+ * [com.hades.example.designpatterns.principle.srp.after.ImageCache]
+ *
+ */
 class SRPActivity : AppCompatActivity(), LoadImageCallback {
     private lateinit var loadingView: View
     private lateinit var imageView: ImageView

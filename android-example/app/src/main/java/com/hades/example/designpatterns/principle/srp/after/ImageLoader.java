@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.principle.srp.before;
+package com.hades.example.designpatterns.principle.srp.after;
 
 
 import android.graphics.Bitmap;
@@ -16,27 +16,11 @@ import java.util.concurrent.Executors;
 
 public class ImageLoader {
     private static final String TAG = "ImageLoader";
-    // Image Cache
-    LruCache<String, Bitmap> imageCache;
+
     // Cache pool, The thread num is same with cpu num
     ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-    public ImageLoader() {
-        initImageCache();
-    }
-
-    private void initImageCache() {
-        // check the max memory
-        final int maxMemory = (int) Runtime.getRuntime().maxMemory() / 1024;
-        final int cacheSize = maxMemory / 4;
-
-        imageCache = new LruCache<>(cacheSize) {
-            @Override
-            protected int sizeOf(String key, Bitmap value) {
-                return value.getRowBytes() * value.getHeight() / 1024;
-            }
-        };
-    }
+    ImageCache imageCache = new ImageCache();
 
     public Bitmap downloadImage(String imageUrl) {
         Bitmap bitmap = null;
