@@ -1,0 +1,66 @@
+package com.hades.example.designpatterns.pattern.mvvm.m;
+
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.hades.example.designpatterns.pattern.mvp.LoginContract;
+import com.hades.example.designpatterns.pattern.mvp.m.LoginResponseBean;
+import com.hades.example.designpatterns.pattern.mvp.p.ICallback;
+import com.hades.example.designpatterns.pattern.mvp.LoginContract;
+import com.hades.example.designpatterns.pattern.mvp.m.LoginResponseBean;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * LoginModel 捕获用户输入，并校验输入的user id是否合法
+ */
+
+public class LoginModel implements LoginContract.IModel {
+    private static final String TAG = "LoginModel";
+
+    @Override
+    public void login(@Nullable String userId, @Nullable String userPwd, @NonNull ICallback callback) {
+//        mockLoginRequestSuccess(userId, userPwd, callback);
+        mockLoginRequestFailed(userId, userPwd, callback);
+    }
+
+    private void mockLoginRequestSuccess(@Nullable String userId, @Nullable String userPwd, @NonNull ICallback callback) {
+        new Thread(() -> {
+            try {
+                Log.d(TAG, "login ---> :userId=" + userId);
+                Thread.sleep(5000);
+                com.hades.example.designpatterns.pattern.mvp.m.LoginResponseBean responseBean = new LoginResponseBean(true, "");
+                List<String> menus = new ArrayList<>();
+                menus.add("Video");
+                menus.add("News");
+                responseBean.setMenus(menus);
+                Log.d(TAG, "login success :" + responseBean);
+                Log.d(TAG, "login <-- ");
+                callback.onSuccess(responseBean);
+            } catch (InterruptedException ex) {
+                Log.d(TAG, "login error:" + ex.getMessage());
+                Log.d(TAG, "login <-- ");
+                callback.onError(2, ex.getMessage());
+            }
+        }).start();
+    }
+
+    private void mockLoginRequestFailed(@Nullable String userId, @Nullable String userPwd, @NonNull ICallback callback) {
+        new Thread(() -> {
+            try {
+                Log.d(TAG, "login ---> :userId=" + userId);
+                Thread.sleep(5000);
+                Log.d(TAG, "login error :");
+                Log.d(TAG, "login <-- ");
+                callback.onError(2, "login time out");
+            } catch (InterruptedException ex) {
+                Log.d(TAG, "login error:" + ex.getMessage());
+                Log.d(TAG, "login <-- ");
+                callback.onError(2, ex.getMessage());
+            }
+        }).start();
+    }
+}

@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".mvp.v.MVPExampleActivity" />
-        <activity android:name=".mvc.v1.c.MVCExampleActivity" />
-        <activity android:name=".mvc.v2.v.MVCExampleActivity" />
-        <activity android:name=".mvvm.MVVMExampleActivity" />
+        <activity android:name=".pattern.mvp.v.MVPExampleActivity" />
+        <activity android:name=".pattern.mvc.v1.c.MVCExampleActivity" />
+        <activity android:name=".pattern.mvc.v2.v.MVCExampleActivity" />
+        <activity android:name=".pattern.mvvm.v.MVVMExampleActivity" />
     </application>
 
 </manifest>
