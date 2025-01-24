@@ -24,6 +24,17 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/srp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Single Responsibility Principle" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/purple_500" />
+
+            <Button
                 android:id="@+id/mvc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
