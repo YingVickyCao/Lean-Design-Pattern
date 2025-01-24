@@ -1,12 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Example"
+        android:text="Android Design Pattern Examples"
         android:textSize="25sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/mvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MVC Way 1" />
+
+            <Button
+                android:id="@+id/mvc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MVC Way 2" />
+
+            <Button
+                android:id="@+id/mvp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MVP" />
+
+            <Button
+                android:id="@+id/mvvc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MVVC" />
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
