@@ -1,23 +1,22 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+//    id 'com.android.application'
+    alias libs.plugins.android.application
+//    id 'org.jetbrains.kotlin.android'
+    alias libs.plugins.kotlin.android
 }
 
 android {
     namespace 'com.hades.example.designpatterns'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.hades.example.designpatterns"
         minSdk 29
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
     }
 
     buildTypes {
@@ -27,11 +26,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
     packagingOptions {
         resources {
@@ -41,12 +40,12 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation libs.core.ktx
+    implementation libs.kotlin.stdlib
+    implementation libs.appcompat
 
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation libs.test.junit
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation libs.androidTest.androidx.test.ext.junit3
+    androidTestImplementation libs.androidTest.espresso.core
 }
