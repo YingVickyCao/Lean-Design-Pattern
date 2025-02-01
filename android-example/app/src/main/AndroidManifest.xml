@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -28,7 +29,10 @@
         <activity android:name=".pattern.mvc.v1.c.MVCExampleActivity" />
         <activity android:name=".pattern.mvc.v2.v.MVCExampleActivity" />
         <activity android:name=".pattern.mvvm.v.MVVMExampleActivity" />
+
+        <activity android:name=".principle.ImageLoaderActivity" />
         <activity android:name=".principle.srp.SRPActivity" />
+        <activity android:name=".principle.ocp.OCPActivity" />
     </application>
 
 </manifest>

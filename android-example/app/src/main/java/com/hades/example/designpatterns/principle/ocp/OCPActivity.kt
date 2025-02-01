@@ -1,17 +1,17 @@
-package com.hades.example.designpatterns.principle.srp
+package com.hades.example.designpatterns.principle.ocp
 
 import com.hades.example.designpatterns.principle.BaseImageLoaderActivity
 import com.hades.example.designpatterns.principle.IImageLoader
 
 /**
- * 单一原则Single Responsibility Principle（SRP)
+ * 开放关闭原则 Open-Close Responsibility Principle（OCP)
  * Example : Image loader
- * Before: Image Loader is a single class.
- * After : Image loader + Memory Image Cache
+ * Before: Image loader + Memory Image Cache
+ * After : Image loader + Memory Image Cache + Dish cache
  */
-class SRPActivity : BaseImageLoaderActivity() {
+class OCPActivity : BaseImageLoaderActivity() {
     override fun getTitleDesc(): String {
-        return "Single Responsibility Principle"
+        return "Open-Close Principle"
     }
 
     override fun createImageLoader(): IImageLoader {

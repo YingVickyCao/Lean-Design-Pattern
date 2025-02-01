@@ -24,10 +24,25 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/loadImageExample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Load Image Example"
+                android:textAllCaps="false" />
+
+            <Button
                 android:id="@+id/srp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Single Responsibility Principle" />
+                android:text="Single Responsibility Principle"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/ocp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Open-Close Principle"
+                android:textAllCaps="false" />
 
             <View
                 android:layout_width="match_parent"
@@ -38,25 +53,29 @@
                 android:id="@+id/mvc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MVC Way 1" />
+                android:text="MVC Way 1"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/mvc2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MVC Way 2" />
+                android:text="MVC Way 2"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/mvp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MVP" />
+                android:text="MVP"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/mvvc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MVVC" />
+                android:text="MVVC (TBD)"
+                android:textAllCaps="false" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

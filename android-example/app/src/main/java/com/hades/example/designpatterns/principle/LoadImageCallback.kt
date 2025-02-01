@@ -1,4 +1,4 @@
-package com.hades.example.designpatterns.principle.srp
+package com.hades.example.designpatterns.principle
 
 import android.graphics.Bitmap
 
